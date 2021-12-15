@@ -2,6 +2,7 @@ export interface Bedwars {
     star: number
     xp: number
     starFormatted: string
+    prestige: string
     coins: number
     overall: {
         games: number

@@ -1,159 +1,125 @@
 import { RawBedwars } from '../types/raw/RawBedwars'
 import { Bedwars } from '../types/processed/Bedwars'
 
-const EASY_LEVELS = 4;
-const EASY_LEVELS_XP = 7000;
-const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
-const LEVELS_PER_PRESTIGE = 100;
-const HIGHEST_PRESTIGE = 10;
+const EASY_LEVELS = 4
+const EASY_LEVELS_XP = 7000
+const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP
+const LEVELS_PER_PRESTIGE = 100
+const HIGHEST_PRESTIGE = 10
 
-function getExpForLevel (level: number): number {
-    if (level === 0) return 0;
-    const respectedLevel = getLevelRespectingPrestige(level);
-    if (respectedLevel > EASY_LEVELS) return 5000;
+function getExpForStar(star: number): number {
+    if (star === 0) return 0
+    const respectedLevel = getStarRespectingPrestige(star)
+    if (respectedLevel > EASY_LEVELS) return 5000
     switch (respectedLevel) {
         case 1:
-            return 500;
+            return 500
         case 2:
-            return 1000;
+            return 1000
         case 3:
-            return 2000;
+            return 2000
         case 4:
-            return 3500;
+            return 3500
     }
-    return 5000;
+    return 5000
 }
 
-function getLevelRespectingPrestige (level: number): number {
-    if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
-        return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
+function getStarRespectingPrestige(star: number): number {
+    if (star > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
+        return star - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE
     } else {
-        return level % LEVELS_PER_PRESTIGE;
+        return star % LEVELS_PER_PRESTIGE
     }
 }
 
-function getLevelForExp (exp: number) {
-    const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
-    let level = prestiges * LEVELS_PER_PRESTIGE;
-    let expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE);
+function getStarForExp(exp: number) {
+    const prestiges = Math.floor(exp / XP_PER_PRESTIGE)
+    let level = prestiges * LEVELS_PER_PRESTIGE
+    let expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE)
 
     for (let i = 1; i <= EASY_LEVELS; ++i) {
-        const expForEasyLevel = getExpForLevel(i);
+        const expForEasyLevel = getExpForStar(i)
         if (expWithoutPrestiges < expForEasyLevel) {
-            break;
+            break
         }
-        level++;
-        expWithoutPrestiges -= expForEasyLevel;
+        level++
+        expWithoutPrestiges -= expForEasyLevel
     }
-    return level + Math.floor(expWithoutPrestiges / 5000);
+    return level + Math.floor(expWithoutPrestiges / 5000)
 }
 
-
-
-function getBwFormattedLevel(level) {
-    const prestige = getBedWarsPrestige(level)
-    switch(prestige) {
+function getFormattedStar(star: number) {
+    const prestige = getPrestige(star)
+    switch (prestige) {
         case 'Stone':
-
-            break;
+            return `&7[${star}✫]`
         case 'Iron':
-
-            break;
+            return `&f[${star}✫]`
         case 'Gold':
-
-            break;
+            return `&6[${star}✫]`
         case 'Diamond':
-
-            break;
+            return `&b[${star}✫]`
         case 'Emerald':
-
-            break;
+            return `&2[${star}✫]`
         case 'Sapphire':
-
-            break;
+            return `&3[${star}✫]`
         case 'Ruby':
-
-            break;
+            return `&4[${star}✫]`
         case 'Crystal':
-
-            break;
+            return `&d[${star}✫]`
         case 'Opal':
-
-            break;
+            return `&9[${star}✫]`
         case 'Amethyst':
-
-            break;
+            return `&5[${star}✫]`
         case 'Rainbow':
-
-            break;
+            return `&c[&6${('' + star)[0]}&e${('' + star)[1]}&a${('' + star)[2]}&b${('' + star)[3]}&d✫&5]`
         case 'Iron Prime':
-
-            break;
+            return `&7[&f${star}&7✪]`
         case 'Gold Prime':
-
-            break;
+            return `&7[&e${star}&6✪&7]`
         case 'Diamond Prime':
-
-            break;
+            return `&7[&b${star}&3✪&7]`
         case 'Emerald Prime':
-
-            break;
+            return `&7[&a${star}&2✪&7]`
         case 'Sapphire Prime':
-
-            break;
+            return `&7[&3${star}&9✪&7]`
         case 'Ruby Prime':
-
-            break;
+            return `&7[&c${star}&4✪&7]`
         case 'Crystal Prime':
-
-            break;
+            return `&7[&d${star}&5✪&7]`
         case 'Opal Prime':
-
-            break;
+            return `&7[&9${star}&1✪&7]`
         case 'Amethyst Prime':
-
-            break;
+            return `&7[&5${star}&8✪&7]`
         case 'Mirror':
-
-                break;
+            return `&8[&7${('' + star)[0]}&f${('' + star)[1]}${('' + star)[2]}&7${('' + star)[3]}✪&8]`
         case 'Light':
-
-            break;
+            return `&f[${('' + star)[0]}&e${('' + star)[1]}${('' + star)[2]}&6${('' + star)[3]}⚝]`
         case 'Dawn':
-
-            break;
+            return `&6[${('' + star)[0]}&f${('' + star)[1]}${('' + star)[2]}&b${('' + star)[3]}&3⚝]`
         case 'Dusk':
-
-            break;
+            return `&5[${('' + star)[0]}&d${('' + star)[1]}${('' + star)[2]}&6${('' + star)[3]}&e⚝]`
         case 'Air':
-
-            break;
+            return `&b[${('' + star)[0]}&f${('' + star)[1]}${('' + star)[2]}&7${('' + star)[3]}⚝&8]`
         case 'Wind':
-
-            break;
+            return `&f[${('' + star)[0]}&a${('' + star)[1]}${('' + star)[2]}&2${('' + star)[3]}⚝]`
         case 'Nebula':
-
-            break;
+            return `&4[${('' + star)[0]}&c${('' + star)[1]}${('' + star)[2]}&d${('' + star)[3]}⚝&5]`
         case 'Thunder':
-
-            break;
+            return `&e[${('' + star)[0]}&f${('' + star)[1]}${('' + star)[2]}&8${('' + star)[3]}⚝]`
         case 'Earth':
-
-            break;
+            return `&a[${('' + star)[0]}&2${('' + star)[1]}${('' + star)[2]}&6${('' + star)[3]}⚝&e]`
         case 'Water':
-
-            break;
+            return `&b[${('' + star)[0]}&3${('' + star)[1]}${('' + star)[2]}&9${('' + star)[3]}⚝&1]`
         case 'Fire':
-
-            break;
+            return `&e[${('' + star)[0]}&6${('' + star)[1]}${('' + star)[2]}&c${('' + star)[3]}⚝&4]`
     }
 }
 
-function getBedWarsPrestige (level: number): string {
-    // eslint-disable-next-line max-len
+function getPrestige(star: number): string {
     return ['Stone', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow', 'Iron Prime', 'Gold Prime', 'Diamond Prime', 'Emerald Prime', 'Sapphire Prime',
         'Ruby Prime', 'Crystal Prime', 'Opal Prime', 'Amethyst Prime', 'Mirror',
-        'Light', 'Dawn', 'Dusk', 'Air', 'Wind', 'Nebula', 'Thunder', 'Earth', 'Water', 'Fire'][Math.floor(level / 100)] || 'Rainbow';
+        'Light', 'Dawn', 'Dusk', 'Air', 'Wind', 'Nebula', 'Thunder', 'Earth', 'Water', 'Fire'][Math.floor(star / 100)] || 'Rainbow'
 }
 
 // ✫
@@ -164,8 +130,9 @@ export function processBedwars(json: RawBedwars): Bedwars {
     return {
         xp: json.Experience,
         coins: json.coins,
-        star: getLevelForExp(json.Experience),
-        starFormatted: '',
+        star: getStarForExp(json.Experience),
+        starFormatted: getFormattedStar(getStarForExp(json.Experience)),
+        prestige: getPrestige(getStarForExp(json.Experience)),
         overall: {
             games: json.games_played_bedwars ?? 0,
             winstreak: json.winstreak ?? 0,

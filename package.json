@@ -1,6 +1,6 @@
 {
   "name": "unborn-hypixel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A fully typed Hypixel API wrapper with a focus on completeness and prettiness",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   "author": "ghqst",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^2.6.6"
   },
   "devDependencies": {
     "@types/node": "^16.11.6"
