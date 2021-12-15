@@ -10,9 +10,9 @@ async function fetchJsonEndpoint(endpoint: string, query: any): Promise<object> 
 async function resolveTarget(input: string): Promise<string> {
     if (!input.includes('-')) {
         const uuidResponseRequest = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`)
-        const uuidResponse: PlayerDbResponse = (await uuidResponseRequest.json() as PlayerDbResponse)
-        if (uuidResponse.success) {
-            return uuidResponse.data.player.id
+        const uuidResponse: MojangAPIResponse = await uuidResponseRequest.json() as any
+        if (uuidResponseRequest.status == 200 && 'id' in uuidResponse) {
+            return `${uuidResponse.id.substring(0, 8)}-${uuidResponse.id.substring(8, 12)}-${uuidResponse.id.substring(12, 16)}-${uuidResponse.id.substring(16, 20)}-${uuidResponse.id.substring(20)}`
         } else {
             return input
         }
