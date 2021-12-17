@@ -26,27 +26,28 @@ export function processSkywars(json: RawSkywars): Skywars {
     const projectileTrails = []
     const balloons = []
     const killEffects = []
-    for (let i = 0; i < json.packages.length; i++) {
-        if (json.packages[i].startsWith('cage_')) {
-            cages.push(json.packages[i].substr(5))
-        } else if (json.packages[i].startsWith('kit_')) {
-            kits.push(json.packages[i].substr(4))
-        } else if (json.packages[i].startsWith('balloon_')) {
-            balloons.push(json.packages[i].substr(8))
-        } else if (json.packages[i].startsWith('favoritemap_')) {
-            favoriteMaps.push(json.packages[i].substr(12))
-        } else if (json.packages[i].startsWith('projectiletrail_')) {
-            projectileTrails.push(json.packages[i].substr(16))
-        } else if (json.packages[i].startsWith('sprays_')) {
-            sprays.push(json.packages[i].substr(7))
-        } else if (json.packages[i].startsWith('killeffect_')) {
-            killEffects.push(json.packages[i].substr(11))
-        } else if (json.packages[i].startsWith('killmessages_')) {
-            killMessages.push(json.packages[i].substr(13))
-        } else if (json.packages[i].startsWith('victorydance_')) {
-            victoryDances.push(json.packages[i].substr(13))
-        } else if (json.packages[i].startsWith('deathcry_')) {
-            deathCries.push(json.packages[i].substr(8))
+    const packages = json.packages ?? []
+    for (let i = 0; i < packages.length; i++) {
+        if (packages[i].startsWith('cage_')) {
+            cages.push(packages[i].substr(5))
+        } else if (packages[i].startsWith('kit_')) {
+            kits.push(packages[i].substr(4))
+        } else if (packages[i].startsWith('balloon_')) {
+            balloons.push(packages[i].substr(8))
+        } else if (packages[i].startsWith('favoritemap_')) {
+            favoriteMaps.push(packages[i].substr(12))
+        } else if (packages[i].startsWith('projectiletrail_')) {
+            projectileTrails.push(packages[i].substr(16))
+        } else if (packages[i].startsWith('sprays_')) {
+            sprays.push(packages[i].substr(7))
+        } else if (packages[i].startsWith('killeffect_')) {
+            killEffects.push(packages[i].substr(11))
+        } else if (packages[i].startsWith('killmessages_')) {
+            killMessages.push(packages[i].substr(13))
+        } else if (packages[i].startsWith('victorydance_')) {
+            victoryDances.push(packages[i].substr(13))
+        } else if (packages[i].startsWith('deathcry_')) {
+            deathCries.push(packages[i].substr(8))
         }
     }
     return {
@@ -54,79 +55,79 @@ export function processSkywars(json: RawSkywars): Skywars {
         starFormatted: json.levelFormatted ?? '',
         activeCosmetics: {
             balloon: json.active_balloon ?? '',
-            cage: json.active_cage,
-            deathCry: json.active_deathcry,
-            killEffect: json.active_killeffect,
-            projectileTrail: json.active_projectiletrail,
-            sprays: json.active_sprays,
-            victoryDance: json.active_victorydance
+            cage: json.active_cage ?? '',
+            deathCry: json.active_deathcry ?? '',
+            killEffect: json.active_killeffect ?? '',
+            projectileTrail: json.active_projectiletrail ?? '',
+            sprays: json.active_sprays ?? '',
+            victoryDance: json.active_victorydance ?? ''
         },
-        angelOfDeathLevel: json.angel_of_death_level,
-        arrowsHit: json.arrows_hit,
-        arrowsShot: json.arrows_shot,
-        assists: json.assists,
-        beastChance: json.beast_chance,
-        bestKillstreak: json.highestKillstreak,
-        bestWinstreak: json.highestWinstreak,
-        blocks_broken: json.blocks_broken,
-        blocks_placed: json.blocks_placed,
-        bow_kills: json.bow_kills,
+        angelOfDeathLevel: json.angel_of_death_level ?? 0,
+        arrowsHit: json.arrows_hit ?? 0,
+        arrowsShot: json.arrows_shot ?? 0,
+        assists: json.assists ?? 0,
+        beastChance: json.beast_chance ?? 0,
+        bestKillstreak: json.highestKillstreak ?? 0,
+        bestWinstreak: json.highestWinstreak ?? 0,
+        blocks_broken: json.blocks_broken ?? 0,
+        blocks_placed: json.blocks_placed ?? 0,
+        bow_kills: json.bow_kills ?? 0,
         challengeAttempts: {
-            archer: json.challenge_attempts_archer,
-            halfHealth: json.challenge_attempts_half_health,
-            noBlock: json.challenge_attempts_no_block,
-            noChest: json.challenge_attempts_no_chest,
-            paper: json.challenge_attempts_paper,
-            rookie: json.challenge_attempts_rookie,
+            archer: json.challenge_attempts_archer ?? 0,
+            halfHealth: json.challenge_attempts_half_health ?? 0,
+            noBlock: json.challenge_attempts_no_block ?? 0,
+            noChest: json.challenge_attempts_no_chest ?? 0,
+            paper: json.challenge_attempts_paper ?? 0,
+            rookie: json.challenge_attempts_rookie ?? 0,
             solo: {
-                archer: json.challenge_attempts_archer_solo,
-                halfHealth: json.challenge_attempts_half_health_solo,
-                noBlock: json.challenge_attempts_no_block_solo,
-                noChest: json.challenge_attempts_no_chest_solo,
-                paper: json.challenge_attempts_paper_solo,
-                rookie: json.challenge_attempts_rookie_solo,
-                total: json.challenge_attempts_solo,
-                uhc: json.challenge_attempts_uhc_solo,
-                ultimateWarrior: json.challenge_attempts_ultimate_warrior_solo
+                archer: json.challenge_attempts_archer_solo ?? 0,
+                halfHealth: json.challenge_attempts_half_health_solo ?? 0,
+                noBlock: json.challenge_attempts_no_block_solo ?? 0,
+                noChest: json.challenge_attempts_no_chest_solo ?? 0,
+                paper: json.challenge_attempts_paper_solo ?? 0,
+                rookie: json.challenge_attempts_rookie_solo ?? 0,
+                total: json.challenge_attempts_solo ?? 0,
+                uhc: json.challenge_attempts_uhc_solo ?? 0,
+                ultimateWarrior: json.challenge_attempts_ultimate_warrior_solo ?? 0
             },
-            total: json.challenge_attempts,
-            uhc: json.challenge_attempts_uhc,
-            ultimateWarrior: json.challenge_attempts_ultimate_warrior
+            total: json.challenge_attempts ?? 0,
+            uhc: json.challenge_attempts_uhc ?? 0,
+            ultimateWarrior: json.challenge_attempts_ultimate_warrior ?? 0
         },
         challengeWins: {
-            archer: json.challenge_wins_archer,
-            halfHealth: json.challenge_wins_half_health,
-            noBlock: json.challenge_wins_no_block,
-            noChest: json.challenge_wins_no_chest,
-            paper: json.challenge_wins_paper,
-            rookie: json.challenge_wins_rookie,
+            archer: json.challenge_wins_archer ?? 0,
+            halfHealth: json.challenge_wins_half_health ?? 0,
+            noBlock: json.challenge_wins_no_block ?? 0,
+            noChest: json.challenge_wins_no_chest ?? 0,
+            paper: json.challenge_wins_paper ?? 0,
+            rookie: json.challenge_wins_rookie ?? 0,
             solo: {
-                archer: json.challenge_wins_archer_solo,
-                halfHealth: json.challenge_wins_half_health_solo,
-                noBlock: json.challenge_wins_no_block_solo,
-                noChest: json.challenge_wins_no_chest_solo,
-                paper: json.challenge_wins_paper_solo,
-                rookie: json.challenge_wins_rookie_solo,
-                total: json.challenge_wins_solo,
-                uhc: json.challenge_wins_uhc_solo,
-                ultimateWarrior: json.challenge_wins_ultimate_warrior_solo
+                archer: json.challenge_wins_archer_solo ?? 0,
+                halfHealth: json.challenge_wins_half_health_solo ?? 0,
+                noBlock: json.challenge_wins_no_block_solo ?? 0,
+                noChest: json.challenge_wins_no_chest_solo ?? 0,
+                paper: json.challenge_wins_paper_solo ?? 0,
+                rookie: json.challenge_wins_rookie_solo ?? 0,
+                total: json.challenge_wins_solo ?? 0,
+                uhc: json.challenge_wins_uhc_solo ?? 0,
+                ultimateWarrior: json.challenge_wins_ultimate_warrior_solo ?? 0
             },
-            total: json.challenge_wins,
-            uhc: json.challenge_wins_uhc,
-            ultimateWarrior: json.challenge_wins_ultimate_warrior
+            total: json.challenge_wins ?? 0,
+            uhc: json.challenge_wins_uhc ?? 0,
+            ultimateWarrior: json.challenge_wins_ultimate_warrior ?? 0
         },
-        chestsOpened: json.chests_opened,
-        christmasBoxes: json.skywars_christmas_boxes,
-        coins: json.coins,
-        cosmeticTokens: json.cosmetic_tokens,
-        deaths: json.deaths,
-        easterBoxes: json.skywars_easter_boxes,
-        eggsThrown: json.egg_thrown,
-        experience: json.skywars_experience,
-        farthestBowKill: json.longest_bow_kill,
-        farthestBowShot: json.longest_bow_shot,
-        fastestWin: json.fastest_win,
-        freeLootChestNpc: json.freeLootChestNpc,
+        chestsOpened: json.chests_opened ?? 0,
+        christmasBoxes: json.skywars_christmas_boxes ?? 0,
+        coins: json.coins ?? 0,
+        cosmeticTokens: json.cosmetic_tokens ?? 0,
+        deaths: json.deaths ?? 0,
+        easterBoxes: json.skywars_easter_boxes ?? 0,
+        eggsThrown: json.egg_thrown ?? 0,
+        experience: json.skywars_experience ?? 0,
+        farthestBowKill: json.longest_bow_kill ?? 0,
+        farthestBowShot: json.longest_bow_shot ?? 0,
+        fastestWin: json.fastest_win ?? 0,
+        freeLootChestNpc: json.freeLootChestNpc ?? 0,
         gamemodes: {
             crazySoloTourney: {
                 arrowsHit: json.tourney_sw_crazy_solo_0_arrows_hit ?? 0,
@@ -1305,6 +1306,7 @@ export function processSkywars(json: RawSkywars): Skywars {
                 voidKills: json.void_kills_solo ?? 0,
                 wins: json.wins_solo ?? 0,
                 winstreak: json.winstreak_solo ?? 0,
+                // TODO: Make kit stats work
                 kits: {
                     armorer: undefined,
                     armorsmith: undefined,
@@ -1468,28 +1470,28 @@ export function processSkywars(json: RawSkywars): Skywars {
                 winstreak: json.winstreak_tourney ?? 0
             }
         },
-        gamesPlayed: json.games,
-        halloweenBoxes: json.skywars_halloween_boxes,
-        harvestingSeason: json.harvesting_season,
-        headCollection: {prestigious: json.head_collection.prestigious, recent: json.head_collection.recent},
+        gamesPlayed: json.games ?? 0,
+        halloweenBoxes: json.skywars_halloween_boxes ?? 0,
+        harvestingSeason: json.harvesting_season ?? 0,
+        headCollection: {prestigious: json.head_collection?.prestigious ?? [], recent: json.head_collection?.recent ?? []},
         headCount: {
-            decent: json.heads_decent,
-            divine: json.heads_divine,
-            eww: json.heads_eww,
-            heavenly: json.heads_heavenly,
-            meh: json.heads_meh,
-            salty: json.heads_salty,
-            succulent: json.heads_succulent,
-            tasty: json.heads_tasty,
-            total: json.heads,
-            yucky: json.heads_yucky
+            decent: json.heads_decent ?? 0,
+            divine: json.heads_divine ?? 0,
+            eww: json.heads_eww ?? 0,
+            heavenly: json.heads_heavenly ?? 0,
+            meh: json.heads_meh ?? 0,
+            salty: json.heads_salty ?? 0,
+            succulent: json.heads_succulent ?? 0,
+            tasty: json.heads_tasty ?? 0,
+            total: json.heads ?? 0,
+            yucky: json.heads_yucky ?? 0
         },
-        highestKillGame: json.most_kills_game,
-        itemsEnchanted: json.items_enchanted,
-        kills: json.kills,
-        killsWeeklyA: json.kills_weekly_a,
-        killsWeeklyB: json.kills_weekly_b,
-        killstreak: json.killstreak,
+        highestKillGame: json.most_kills_game ?? 0,
+        itemsEnchanted: json.items_enchanted ?? 0,
+        kills: json.kills ?? 0,
+        killsWeeklyA: json.kills_weekly_a ?? 0,
+        killsWeeklyB: json.kills_weekly_b ?? 0,
+        killstreak: json.killstreak ?? 0,
         lastMode: json.lastMode ?? '',
         levelFormatted: json.levelFormatted ?? '',
         losses: json.losses ?? 0,
