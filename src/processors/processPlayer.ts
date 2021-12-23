@@ -15,19 +15,19 @@ export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 
     statsToProcess.forEach(item => {
         switch(item) {
             case 'duels':
-                stats.Duels = processDuels(json.stats.Duels ?? {})
+                stats.Duels = processDuels(json.stats.Duels == null ? {} : json.stats.Duels)
                 break;
             case 'bedwars':
-                stats.Bedwars = processBedwars(json.stats.Bedwars ?? {})
+                stats.Bedwars = processBedwars(json.stats.Bedwars == null ? {} : json.stats.Bedwars)
                 break;
             case 'skywars':
-                stats.Skywars = processSkywars(json.stats.SkyWars ?? {})
+                stats.Skywars = processSkywars(json.stats.SkyWars == null ? {} : json.stats.SkyWars)
                 break;
             case 'murdermystery':
-                stats.MurderMystery = processMurderMystery(json.stats.MurderMystery ?? {})
+                stats.MurderMystery = processMurderMystery(json.stats.MurderMystery == null ? {} : json.stats.MurderMystery)
                 break;
             case 'uhc':
-                stats.UHC = processUHC(json.stats.UHC ?? {})
+                stats.UHC = processUHC(json.stats.UHC == null ? {} : json.stats.UHC)
                 break;
         }
     })
