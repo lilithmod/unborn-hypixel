@@ -128,11 +128,11 @@ function getPrestige(star: number): string {
 
 export function processBedwars(json: RawBedwars): Bedwars {
     return {
-        xp: json.Experience,
-        coins: json.coins,
-        star: getStarForExp(json.Experience),
-        starFormatted: getFormattedStar(getStarForExp(json.Experience)),
-        prestige: getPrestige(getStarForExp(json.Experience)),
+        xp: json.Experience ?? 0,
+        coins: json.coins ?? 0,
+        star: getStarForExp(json.Experience ?? 0),
+        starFormatted: getFormattedStar(getStarForExp(json.Experience ?? 0)),
+        prestige: getPrestige(getStarForExp(json.Experience ?? 0)),
         overall: {
             games: json.games_played_bedwars ?? 0,
             winstreak: json.winstreak ?? 0,
@@ -149,10 +149,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.beds_lost_bedwars ?? 0,
             bblr: (json.beds_broken_bedwars || 0) / (json.beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.iron_resources_collected_bedwars,
-                gold: json.gold_resources_collected_bedwars,
-                diamond: json.diamond_resources_collected_bedwars,
-                emerald: json.emerald_resources_collected_bedwars,
+                iron: json.iron_resources_collected_bedwars ?? 0,
+                gold: json.gold_resources_collected_bedwars ?? 0,
+                diamond: json.diamond_resources_collected_bedwars ?? 0,
+                emerald: json.emerald_resources_collected_bedwars ?? 0,
             }
         },
         '4v4': {
@@ -171,10 +171,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_beds_broken_bedwars || 0) / (json.four_four_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_iron_resources_collected_bedwars,
-                gold: json.four_four_gold_resources_collected_bedwars,
-                diamond: json.four_four_diamond_resources_collected_bedwars,
-                emerald: json.four_four_emerald_resources_collected_bedwars,
+                iron: json.four_four_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_emerald_resources_collected_bedwars ?? 0,
             }
         },
         armedDoubles: {
@@ -193,10 +193,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_armed_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_armed_beds_broken_bedwars || 0) / (json.eight_two_armed_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_armed_iron_resources_collected_bedwars,
-                gold: json.eight_two_armed_gold_resources_collected_bedwars,
-                diamond: json.eight_two_armed_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_armed_emerald_resources_collected_bedwars,
+                iron: json.eight_two_armed_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_armed_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_armed_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_armed_emerald_resources_collected_bedwars ?? 0,
             }
         },
         armedFours: {
@@ -215,10 +215,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_armed_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_armed_beds_broken_bedwars || 0) / (json.four_four_armed_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_armed_iron_resources_collected_bedwars,
-                gold: json.four_four_armed_gold_resources_collected_bedwars,
-                diamond: json.four_four_armed_diamond_resources_collected_bedwars,
-                emerald: json.four_four_armed_emerald_resources_collected_bedwars,
+                iron: json.four_four_armed_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_armed_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_armed_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_armed_emerald_resources_collected_bedwars ?? 0,
             }
         },
         castle: {
@@ -237,10 +237,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.castle_beds_lost_bedwars ?? 0,
             bblr: (json.castle_beds_broken_bedwars || 0) / (json.castle_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.castle_iron_resources_collected_bedwars,
-                gold: json.castle_gold_resources_collected_bedwars,
-                diamond: json.castle_diamond_resources_collected_bedwars,
-                emerald: json.castle_emerald_resources_collected_bedwars,
+                iron: json.castle_iron_resources_collected_bedwars ?? 0,
+                gold: json.castle_gold_resources_collected_bedwars ?? 0,
+                diamond: json.castle_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.castle_emerald_resources_collected_bedwars ?? 0,
             }
         },
         doubles: {
@@ -259,10 +259,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_beds_broken_bedwars || 0) / (json.eight_two_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_iron_resources_collected_bedwars,
-                gold: json.eight_two_gold_resources_collected_bedwars,
-                diamond: json.eight_two_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_emerald_resources_collected_bedwars,
+                iron: json.eight_two_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_emerald_resources_collected_bedwars ?? 0,
             }
         },
         fours: {
@@ -281,10 +281,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_beds_broken_bedwars || 0) / (json.four_four_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_iron_resources_collected_bedwars,
-                gold: json.four_four_gold_resources_collected_bedwars,
-                diamond: json.four_four_diamond_resources_collected_bedwars,
-                emerald: json.four_four_emerald_resources_collected_bedwars,
+                iron: json.four_four_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_emerald_resources_collected_bedwars ?? 0,
             }
         },
         luckyDoubles: {
@@ -303,10 +303,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_lucky_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_lucky_beds_broken_bedwars || 0) / (json.eight_two_lucky_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_lucky_iron_resources_collected_bedwars,
-                gold: json.eight_two_lucky_gold_resources_collected_bedwars,
-                diamond: json.eight_two_lucky_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_lucky_emerald_resources_collected_bedwars,
+                iron: json.eight_two_lucky_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_lucky_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_lucky_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_lucky_emerald_resources_collected_bedwars ?? 0,
             }
         },
         luckyFours: {
@@ -325,10 +325,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_lucky_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_lucky_beds_broken_bedwars || 0) / (json.four_four_lucky_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_lucky_iron_resources_collected_bedwars,
-                gold: json.four_four_lucky_gold_resources_collected_bedwars,
-                diamond: json.four_four_lucky_diamond_resources_collected_bedwars,
-                emerald: json.four_four_lucky_emerald_resources_collected_bedwars,
+                iron: json.four_four_lucky_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_lucky_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_lucky_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_lucky_emerald_resources_collected_bedwars ?? 0,
             }
         },
         rushDoubles: {
@@ -347,10 +347,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_rush_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_rush_beds_broken_bedwars || 0) / (json.eight_two_rush_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_rush_iron_resources_collected_bedwars,
-                gold: json.eight_two_rush_gold_resources_collected_bedwars,
-                diamond: json.eight_two_rush_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_rush_emerald_resources_collected_bedwars,
+                iron: json.eight_two_rush_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_rush_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_rush_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_rush_emerald_resources_collected_bedwars ?? 0,
             }
         },
         rushFours: {
@@ -369,10 +369,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_rush_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_rush_beds_broken_bedwars || 0) / (json.four_four_rush_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_rush_iron_resources_collected_bedwars,
-                gold: json.four_four_rush_gold_resources_collected_bedwars,
-                diamond: json.four_four_rush_diamond_resources_collected_bedwars,
-                emerald: json.four_four_rush_emerald_resources_collected_bedwars,
+                iron: json.four_four_rush_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_rush_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_rush_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_rush_emerald_resources_collected_bedwars ?? 0,
             }
         },
         rushSolo: {
@@ -391,10 +391,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_one_rush_beds_lost_bedwars ?? 0,
             bblr: (json.eight_one_rush_beds_broken_bedwars || 0) / (json.eight_one_rush_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_one_rush_iron_resources_collected_bedwars,
-                gold: json.eight_one_rush_gold_resources_collected_bedwars,
-                diamond: json.eight_one_rush_diamond_resources_collected_bedwars,
-                emerald: json.eight_one_rush_emerald_resources_collected_bedwars,
+                iron: json.eight_one_rush_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_one_rush_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_one_rush_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_one_rush_emerald_resources_collected_bedwars ?? 0,
             }
         },
         solo: {
@@ -413,10 +413,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_one_beds_lost_bedwars ?? 0,
             bblr: (json.eight_one_beds_broken_bedwars || 0) / (json.eight_one_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_one_iron_resources_collected_bedwars,
-                gold: json.eight_one_gold_resources_collected_bedwars,
-                diamond: json.eight_one_diamond_resources_collected_bedwars,
-                emerald: json.eight_one_emerald_resources_collected_bedwars,
+                iron: json.eight_one_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_one_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_one_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_one_emerald_resources_collected_bedwars ?? 0,
             }
         },
         threes: {
@@ -435,10 +435,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_three_beds_lost_bedwars ?? 0,
             bblr: (json.four_three_beds_broken_bedwars || 0) / (json.four_three_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_three_iron_resources_collected_bedwars,
-                gold: json.four_three_gold_resources_collected_bedwars,
-                diamond: json.four_three_diamond_resources_collected_bedwars,
-                emerald: json.four_three_emerald_resources_collected_bedwars,
+                iron: json.four_three_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_three_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_three_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_three_emerald_resources_collected_bedwars ?? 0,
             }
         },
         ultimateDoubles: {
@@ -457,10 +457,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_ultimate_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_ultimate_beds_broken_bedwars || 0) / (json.eight_two_ultimate_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_ultimate_iron_resources_collected_bedwars,
-                gold: json.eight_two_ultimate_gold_resources_collected_bedwars,
-                diamond: json.eight_two_ultimate_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_ultimate_emerald_resources_collected_bedwars,
+                iron: json.eight_two_ultimate_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_ultimate_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_ultimate_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_ultimate_emerald_resources_collected_bedwars ?? 0,
             }
         },
         ultimateFours: {
@@ -479,10 +479,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_ultimate_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_ultimate_beds_broken_bedwars || 0) / (json.four_four_ultimate_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_ultimate_iron_resources_collected_bedwars,
-                gold: json.four_four_ultimate_gold_resources_collected_bedwars,
-                diamond: json.four_four_ultimate_diamond_resources_collected_bedwars,
-                emerald: json.four_four_ultimate_emerald_resources_collected_bedwars,
+                iron: json.four_four_ultimate_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_ultimate_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_ultimate_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_ultimate_emerald_resources_collected_bedwars ?? 0,
             }
         },
         ultimateSolo: {
@@ -501,10 +501,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_one_ultimate_beds_lost_bedwars ?? 0,
             bblr: (json.eight_one_ultimate_beds_broken_bedwars || 0) / (json.eight_one_ultimate_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_one_ultimate_iron_resources_collected_bedwars,
-                gold: json.eight_one_ultimate_gold_resources_collected_bedwars,
-                diamond: (json as any).eight_one_ultimate_diamond_resources_collected_bedwars,
-                emerald: (json as any).eight_one_ultimate_emerald_resources_collected_bedwars,
+                iron: json.eight_one_ultimate_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_one_ultimate_gold_resources_collected_bedwars ?? 0,
+                diamond: (json as any).eight_one_ultimate_diamond_resources_collected_bedwars ?? 0,
+                emerald: (json as any).eight_one_ultimate_emerald_resources_collected_bedwars ?? 0,
             }
         },
         voidlessDoubles: {
@@ -523,10 +523,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.eight_two_voidless_beds_lost_bedwars ?? 0,
             bblr: (json.eight_two_voidless_beds_broken_bedwars || 0) / (json.eight_two_voidless_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.eight_two_voidless_iron_resources_collected_bedwars,
-                gold: json.eight_two_voidless_gold_resources_collected_bedwars,
-                diamond: json.eight_two_voidless_diamond_resources_collected_bedwars,
-                emerald: json.eight_two_voidless_emerald_resources_collected_bedwars,
+                iron: json.eight_two_voidless_iron_resources_collected_bedwars ?? 0,
+                gold: json.eight_two_voidless_gold_resources_collected_bedwars ?? 0,
+                diamond: json.eight_two_voidless_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.eight_two_voidless_emerald_resources_collected_bedwars ?? 0,
             }
         },
         voidlessFours: {
@@ -545,10 +545,10 @@ export function processBedwars(json: RawBedwars): Bedwars {
             bedsLost: json.four_four_voidless_beds_lost_bedwars ?? 0,
             bblr: (json.four_four_voidless_beds_broken_bedwars || 0) / (json.four_four_voidless_beds_lost_bedwars || 1),
             itemsCollected: {
-                iron: json.four_four_voidless_iron_resources_collected_bedwars,
-                gold: json.four_four_voidless_gold_resources_collected_bedwars,
-                diamond: json.four_four_voidless_diamond_resources_collected_bedwars,
-                emerald: json.four_four_voidless_emerald_resources_collected_bedwars,
+                iron: json.four_four_voidless_iron_resources_collected_bedwars ?? 0,
+                gold: json.four_four_voidless_gold_resources_collected_bedwars ?? 0,
+                diamond: json.four_four_voidless_diamond_resources_collected_bedwars ?? 0,
+                emerald: json.four_four_voidless_emerald_resources_collected_bedwars ?? 0,
             }
         }
     }

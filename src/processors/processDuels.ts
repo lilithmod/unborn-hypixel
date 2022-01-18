@@ -66,7 +66,7 @@ export function processDuels(json: RawDuels): Duels {
             kdr: cutOff((json.kills || 0) / (json.deaths || 1)),
             win_ratio: cutOff((json.wins + json.losses) === 0 || json.wins == null || (json.wins + json.losses) ? 0 : json.wins / (json.wins + json.losses)),
             wlr: cutOff((json.wins || 0) / (json.losses || 1)),
-            melee_hit_ratio: cutOff(json.melee_swings === 0 || json.melee_hits== null || json.melee_swings == null ? 0 : json.melee_hits / json.melee_swings),
+            melee_hit_ratio: cutOff((json.melee_hits || 0) / (json.melee_swings || 1)),
             rookie_title_prestige: json.all_modes_rookie_title_prestige ?? 0,
             iron_title_prestige: json.all_modes_iron_title_prestige ?? 0,
             gold_title_prestige: json.all_modes_gold_title_prestige ?? 0,
