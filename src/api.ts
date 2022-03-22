@@ -7,16 +7,34 @@ async function fetchJsonEndpoint(endpoint: string, query: any): Promise<object> 
     return (request.json() as object)
 }
 
-async function resolveTarget(input: string): Promise<string> {
-    if (!input.includes('-')) {
-        const uuidResponseRequest = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`)
-        if (uuidResponseRequest.status !== 200) return input
-        const uuidResponse: MojangAPIResponse = await uuidResponseRequest.json() as any
-        if ('id' in uuidResponse) {
-            return `${uuidResponse.id.substring(0, 8)}-${uuidResponse.id.substring(8, 12)}-${uuidResponse.id.substring(12, 16)}-${uuidResponse.id.substring(16, 20)}-${uuidResponse.id.substring(20)}`
-        } else {
-            return input
+export function dashedUUID(input: string): string {
+    return `${input.substring(0, 8)}-${input.substring(8, 12)}-${input.substring(12, 16)}-${input.substring(16, 20)}-${input.substring(20)}`
+}
+
+export async function resolveUsername(input: string, dashes: boolean = true, throwErr: boolean = false): Promise<string> {
+    if (!input.includes('-') || input.length < 17) {
+        let uuidResponseRequest
+        let uuidResponse: MojangAPIResponse | PlayerDbResponse
+        try {
+            uuidResponseRequest = await Promise.any([fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`), fetch(`https://playerdb.co/api/player/minecraft/${input}`)])
+        } catch(e) {
+            if (throwErr) throw new Error('Failed to fetch UUID')
+            else return input
         }
+        if (uuidResponseRequest.status !== 200) {
+            if (throwErr) throw new Error('Failed to fetch UUID')
+            else return input
+        }
+        uuidResponse = await uuidResponseRequest.json()
+        if ('id' in uuidResponse) {
+            return dashes ? dashedUUID(uuidResponse.id) : uuidResponse.id
+        } else if (!('error' in uuidResponse)) {
+            return dashes ? uuidResponse.data.player.id : uuidResponse.data.player.raw_id
+        } else {
+            if (throwErr) throw new Error('Failed to fetch UUID')
+            else return input
+        }
+
     } else {
         return input
     }
@@ -25,13 +43,13 @@ async function resolveTarget(input: string): Promise<string> {
 
 export async function fetchKeyInfo(key: string, throwErr: boolean = false): Promise<KeyResponse> {
     const response: KeyResponse = (await fetchJsonEndpoint('/key', {key}) as KeyResponse)
-    if (throwErr && response.success == false) {
+    if (throwErr && response.success === false) {
         throw new Error(response.cause)
     } else return response
 }
 
 export async function fetchPlayerRaw(input: string, key: string, throwErr: boolean = false): Promise<PlayerResponse> {
-    const resolvedInput = await resolveTarget(input)
+    const resolvedInput = await resolveUsername(input)
     const response: PlayerResponse = (await fetchJsonEndpoint('/player', {
         uuid: resolvedInput,
         key
@@ -42,7 +60,7 @@ export async function fetchPlayerRaw(input: string, key: string, throwErr: boole
 }
 
 export async function fetchFriends(input: string, key: string, throwErr: boolean = false): Promise<FriendsResponse> {
-    const resolvedInput = await resolveTarget(input)
+    const resolvedInput = await resolveUsername(input)
     const response: FriendsResponse = (await fetchJsonEndpoint('/friends', {
         uuid: resolvedInput,
         key
@@ -53,7 +71,7 @@ export async function fetchFriends(input: string, key: string, throwErr: boolean
 }
 
 export async function fetchRecentGames(input: string, key: string, throwErr: boolean = false): Promise<RecentGamesResponse> {
-    const resolvedInput = await resolveTarget(input)
+    const resolvedInput = await resolveUsername(input)
     const response: RecentGamesResponse = (await fetchJsonEndpoint('/recentgames', {
         uuid: resolvedInput,
         key
@@ -64,7 +82,7 @@ export async function fetchRecentGames(input: string, key: string, throwErr: boo
 }
 
 export async function fetchStatus(input: string, key: string, throwErr: boolean = false): Promise<StatusResponse> {
-    const resolvedInput = await resolveTarget(input)
+    const resolvedInput = await resolveUsername(input)
     const response: StatusResponse = (await fetchJsonEndpoint('/status', {
         uuid: resolvedInput,
         key
@@ -75,7 +93,7 @@ export async function fetchStatus(input: string, key: string, throwErr: boolean 
 }
 
 export async function fetchGuildByPlayer(uuid: string, key: string, throwErr: boolean = false): Promise<GuildResponse> {
-    const resolvedInput = await resolveTarget(uuid)
+    const resolvedInput = await resolveUsername(uuid)
     const response: GuildResponse = (await fetchJsonEndpoint('/guild', {
         uuid: resolvedInput,
         key
@@ -106,7 +124,7 @@ export async function fetchGuildById(id: string, key: string, throwErr: boolean 
 }
 
 export async function fetchRankedSkywars(input: string, key: string, throwErr: boolean = false): Promise<RankedSkywarsResponse> {
-    const resolvedInput = await resolveTarget(input)
+    const resolvedInput = await resolveUsername(input)
     const response: RankedSkywarsResponse = (await fetchJsonEndpoint('/player/ranked/skywars', {
         uuid: resolvedInput,
         key
