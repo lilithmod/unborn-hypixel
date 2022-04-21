@@ -10,11 +10,13 @@ export function processDuels(json: RawDuels): Duels {
     let [bridgeWins, bridgeLosses, uhcWins, uhcLosses, uhcDeaths, uhcKills] = Array(12).fill(0);
     bridgeWins += json.bridge_duel_wins ?? 0
     bridgeWins += json.bridge_doubles_wins ?? 0
+    bridgeWins += json.bridge_threes_wins ?? 0
     bridgeWins += json.bridge_four_wins ?? 0
     bridgeWins += json.bridge_2v2v2v2_wins ?? 0
     bridgeWins += json.bridge_3v3v3v3_wins ?? 0
     bridgeLosses += json.bridge_duel_losses ?? 0
     bridgeLosses += json.bridge_doubles_losses ?? 0
+    bridgeLosses += json.bridge_threes_losses ?? 0
     bridgeLosses += json.bridge_four_losses ?? 0
     bridgeLosses += json.bridge_2v2v2v2_losses ?? 0
     bridgeLosses += json.bridge_3v3v3v3_losses ?? 0
