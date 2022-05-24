@@ -15,7 +15,7 @@ export function processDuels(json: RawDuels): Duels {
     bridgeWins += json.bridge_2v2v2v2_wins ?? 0
     bridgeWins += json.bridge_3v3v3v3_wins ?? 0
     // bridgeWins += json.capture_duel_wins ?? 0
-    // bridgeWins += json.capture_threes_wins ?? 0
+    bridgeWins += json.capture_threes_wins ?? 0
     bridgeLosses += json.bridge_duel_losses ?? 0
     bridgeLosses += json.bridge_doubles_losses ?? 0
     bridgeLosses += json.bridge_threes_losses ?? 0
@@ -23,7 +23,7 @@ export function processDuels(json: RawDuels): Duels {
     bridgeLosses += json.bridge_2v2v2v2_losses ?? 0
     bridgeLosses += json.bridge_3v3v3v3_losses ?? 0
     // bridgeLosses += json.capture_duel_losses ?? 0
-    // bridgeLosses += json.capture_threes_losses ?? 0
+    bridgeLosses += json.capture_threes_losses ?? 0
     const bridgeWlr = (bridgeWins || 0) / (bridgeLosses || 1)
     const bridgeKdr = (json.bridge_kills || 0) / (json.bridge_deaths || 1)
     uhcWins += json.uhc_duel_wins ?? 0
