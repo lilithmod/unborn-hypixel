@@ -174,7 +174,7 @@ export function processBedwars(json: RawBedwars): Bedwars {
                 iron: json.two_four_iron_resources_collected_bedwars ?? 0,
                 gold: json.two_four_gold_resources_collected_bedwars ?? 0,
                 diamond: json.two_four_diamond_resources_collected_bedwars ?? 0,
-                emerald: json.twor_four_emerald_resources_collected_bedwars ?? 0,
+                emerald: json.two_four_emerald_resources_collected_bedwars ?? 0,
             }
         },
         armedDoubles: {
