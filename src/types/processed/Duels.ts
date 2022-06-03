@@ -135,12 +135,14 @@ export interface Duels {
                 'losses': number
                 'wlr': number
                 'blocks_placed': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'deaths': number
                 'kills': number
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
@@ -149,10 +151,12 @@ export interface Duels {
                 'current_winstreak': number
                 'best_winstreak': number
                 'blocks_placed': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
@@ -172,10 +176,12 @@ export interface Duels {
                 'damage_dealt': number
                 'goals': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -190,10 +196,12 @@ export interface Duels {
                 'damage_dealt': number
                 'goals': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -208,10 +216,12 @@ export interface Duels {
                 'damage_dealt': number
                 'goals': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -226,10 +236,12 @@ export interface Duels {
                 'damage_dealt': number
                 'goals': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -244,10 +256,12 @@ export interface Duels {
                 'kills': number
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -262,10 +276,12 @@ export interface Duels {
                 'kills': number
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'losses': number
@@ -276,6 +292,7 @@ export interface Duels {
             'kit': string
             'damage_dealt': number
             'health_regenerated': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -284,6 +301,7 @@ export interface Duels {
             'wins': number
             'deaths': number
             'losses': number
+            'bow_ratio': number
             'bow_hits': number
             'bow_shots': number
             'wlr': number
@@ -298,10 +316,12 @@ export interface Duels {
             'health_regenerated': number
             'kills': number
             'losses': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
             'wins': number
+            'bow_ratio': number
             'bow_hits': number
             'wlr': number
             'kdr': number
@@ -317,6 +337,7 @@ export interface Duels {
             'losses': number
             'rounds_played': number
             'wins': number
+            'bow_ratio': number
             'bow_hits': number
             'wlr': number
             'kdr': number
@@ -337,6 +358,7 @@ export interface Duels {
             'deaths': number
             'health_regenerated': number
             'losses': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -352,6 +374,7 @@ export interface Duels {
             'golden_apples_eaten': number
             'health_regenerated': number
             'losses': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -366,10 +389,12 @@ export interface Duels {
             'class': string
             'damage_dealt': number
             'health_regenerated': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
             'blocks_placed': number
+            'bow_ratio': number
             'bow_hits': number
             'bow_shots': number
             'kills': number
@@ -384,10 +409,12 @@ export interface Duels {
         'mega_walls_doubles': {
             'damage_dealt': number
             'health_regenerated': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
             'blocks_placed': number
+            'bow_ratio': number
             'bow_hits': number
             'bow_shots': number
             'kills': number
@@ -400,6 +427,7 @@ export interface Duels {
             'deaths': number
             'health_regenerated': number
             'losses': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -415,6 +443,7 @@ export interface Duels {
             'deaths': number
             'health_regenerated': number
             'losses': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -438,6 +467,7 @@ export interface Duels {
             'damage_dealt': number
             'heal_pots_used': number
             'health_regenerated': number
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
@@ -464,9 +494,11 @@ export interface Duels {
                 'damage_dealt': number
                 'golden_apples_eaten': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'deaths': number
@@ -483,9 +515,11 @@ export interface Duels {
                 'damage_dealt': number
                 'golden_apples_eaten': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'deaths': number
@@ -499,11 +533,13 @@ export interface Duels {
             }
             'fours': {
                 'blocks_placed': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'damage_dealt': number
                 'golden_apples_eaten': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
@@ -519,10 +555,12 @@ export interface Duels {
             'meetup': {
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'blocks_placed': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'deaths': number
@@ -542,6 +580,7 @@ export interface Duels {
                 'blocks_placed': number
                 'damage_dealt': number
                 'health_regenerated': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
@@ -549,6 +588,7 @@ export interface Duels {
                 'losses': number
                 'kills': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'wlr': number
@@ -561,11 +601,13 @@ export interface Duels {
                 'deaths': number
                 'health_regenerated': number
                 'losses': number
+                'melee_ratio': number
                 'melee_hits': number
                 'melee_swings': number
                 'rounds_played': number
                 'damage_dealt': number
                 'wins': number
+                'bow_ratio': number
                 'bow_hits': number
                 'bow_shots': number
                 'kills': number
@@ -576,6 +618,7 @@ export interface Duels {
             }
         }
         'sumo': {
+            'melee_ratio': number
             'melee_hits': number
             'melee_swings': number
             'rounds_played': number
