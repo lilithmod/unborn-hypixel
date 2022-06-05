@@ -22,11 +22,11 @@ export interface Duels {
         'meters_travelled': number
         'rounds_played': number
         'wins': number
-        'bow_hit_percentage': number
+        'bow_ratio': number
         'kdr': number
         'win_ratio': number
         'wlr': number
-        'melee_hit_ratio': number
+        'melee_ratio': number
         'rookie_title_prestige': number
         'iron_title_prestige': number
         'gold_title_prestige': number
@@ -422,7 +422,7 @@ export interface Duels {
             'current_winstreak': number
             'best_winstreak': number
         }
-        'op_duel': {
+        'op': {
             'damage_dealt': number
             'deaths': number
             'health_regenerated': number
@@ -437,22 +437,38 @@ export interface Duels {
             'kdr': number
             'current_winstreak': number
             'best_winstreak': number
-        }
-        'op_doubles': {
-            'damage_dealt': number
-            'deaths': number
-            'health_regenerated': number
-            'losses': number
-            'melee_ratio': number
-            'melee_hits': number
-            'melee_swings': number
-            'rounds_played': number
-            'kills': number
-            'wins': number
-            'wlr': number
-            'kdr': number
-            'current_winstreak': number
-            'best_winstreak': number
+            'duels': {
+                'damage_dealt': number
+                'deaths': number
+                'health_regenerated': number
+                'losses': number
+                'melee_ratio': number
+                'melee_hits': number
+                'melee_swings': number
+                'rounds_played': number
+                'kills': number
+                'wins': number
+                'wlr': number
+                'kdr': number
+                'current_winstreak': number
+                'best_winstreak': number
+            }
+            'doubles': {
+                'damage_dealt': number
+                'deaths': number
+                'health_regenerated': number
+                'losses': number
+                'melee_ratio': number
+                'melee_hits': number
+                'melee_swings': number
+                'rounds_played': number
+                'kills': number
+                'wins': number
+                'wlr': number
+                'kdr': number
+                'current_winstreak': number
+                'best_winstreak': number
+            }
         }
         'parkour_eight': {
             'deaths': number
