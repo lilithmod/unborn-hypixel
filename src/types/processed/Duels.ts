@@ -590,6 +590,22 @@ export interface Duels {
             }
         }
         'skywars': {
+            'blocks_placed': number
+            'damage_dealt': number
+            'health_regenerated': number
+            'melee_ratio': number
+            'melee_hits': number
+            'melee_swings': number
+            'rounds_played': number
+            'deaths': number
+            'losses': number
+            'kills': number
+            'wins': number
+            'bow_ratio': number
+            'bow_hits': number
+            'bow_shots': number
+            'wlr': number
+            'kdr': number
             'current_winstreak': number
             'best_winstreak': number
             'doubles': {

@@ -471,14 +471,17 @@ export function processDuels(json: RawDuels): Duels {
             op: {
                 best_winstreak: (json.best_winstreak_mode_op_duel ?? 0) + (json.best_winstreak_mode_op_doubles ?? 0),
                 current_winstreak: (json.current_winstreak_mode_op_duel ?? 0) + (json.current_winstreak_mode_op_doubles ?? 0),
-                wlr: cutOff(((json.op_duel_wins || 0) + (json.op_doubles_wins || 0)) / (((json.op_duel_losses || 0) + (json.op_doubles_losses || 0)) || 1)),
-                kdr: cutOff(((json.op_duel_kills || 0) + (json.op_doubles_kills || 0)) / (((json.op_duel_deaths || 0) + (json.op_doubles_deaths || 0)) || 1)),
+                wlr: cutOff(((json.op_duel_wins || 0) + (json.op_doubles_wins || 0)) /
+                    (((json.op_duel_losses || 0) + (json.op_doubles_losses || 0)) || 1)),
+                kdr: cutOff(((json.op_duel_kills || 0) + (json.op_doubles_kills || 0)) /
+                    (((json.op_duel_deaths || 0) + (json.op_doubles_deaths || 0)) || 1)),
                 damage_dealt: (json.op_duel_damage_dealt ?? 0) + (json.op_doubles_damage_dealt ?? 0),
                 deaths: (json.op_duel_deaths ?? 0) + (json.op_doubles_deaths ?? 0),
                 health_regenerated: (json.op_duel_health_regenerated ?? 0) + (json.op_doubles_health_regenerated ?? 0),
                 kills: (json.op_duel_kills ?? 0) + (json.op_doubles_kills ?? 0),
                 losses: (json.op_duel_losses ?? 0) + (json.op_doubles_losses ?? 0),
-                melee_ratio: cutOff((json.op_duel_melee_hits || 0) / (json.op_duel_melee_swings || 1)), // TODO: FIX THIS
+                melee_ratio: cutOff(((json.op_duel_melee_hits || 0) + (json.op_doubles_melee_hits || 0)) /
+                    (((json.op_duel_melee_swings || 0) + (json.op_doubles_melee_swings || 0)) || 1)),
                 melee_hits: (json.op_duel_melee_hits ?? 0) + (json.op_doubles_melee_hits ?? 0),
                 melee_swings: (json.op_duel_melee_swings ?? 0) + (json.op_doubles_melee_swings ?? 0),
                 rounds_played: (json.op_duel_rounds_played ?? 0) + (json.op_doubles_rounds_played ?? 0),
@@ -637,7 +640,26 @@ export function processDuels(json: RawDuels): Duels {
             },
             skywars: {
                 current_winstreak: json.current_skywars_winstreak,
-                best_winstreak: json.best_skywars_winstreak,
+                best_winstreak: json.best_skywars_winstreak, // TODO: finish gamemode
+                wlr: cutOff(((json.sw_duel_wins || 0) + (json.sw_doubles_wins || 0)) /
+                    (((json.sw_duel_losses || 0) + (json.sw_doubles_losses || 0)) || 1)),
+                kdr: cutOff(((json.sw_duel_kills || 0) + (json.sw_doubles_kills || 0)) /
+                    (((json.sw_duel_deaths || 0) + (json.sw_doubles_deaths || 0)) || 1)),
+                blocks_placed: json.sw_duel_blocks_placed ?? 0,
+                bow_ratio: cutOff((json.sw_duel_bow_hits || 0) / (json.sw_duel_bow_shots || 1)),
+                bow_hits: json.sw_duel_bow_hits ?? 0,
+                bow_shots: json.sw_duel_bow_shots ?? 0,
+                damage_dealt: json.sw_duel_damage_dealt ?? 0,
+                deaths: json.sw_duel_deaths ?? 0,
+                health_regenerated: json.sw_duel_health_regenerated ?? 0,
+                kills: json.sw_duel_kills ?? 0,
+                losses: json.sw_duel_losses ?? 0,
+                melee_ratio: cutOff(((json.sw_duel_melee_hits || 0) + (json.sw_doubles_melee_hits || 0)) /
+                    (((json.sw_duel_melee_swings || 0) + (json.sw_doubles_melee_swings || 0)) || 1)),
+                melee_hits: json.sw_duel_melee_hits ?? 0,
+                melee_swings: json.sw_duel_melee_swings ?? 0,
+                rounds_played: json.sw_duel_rounds_played ?? 0,
+                wins: json.sw_duel_wins ?? 0,
                 doubles: {
                     best_winstreak: json.best_winstreak_mode_sw_doubles ?? 0,
                     current_winstreak: json.current_winstreak_mode_sw_doubles ?? 0,
