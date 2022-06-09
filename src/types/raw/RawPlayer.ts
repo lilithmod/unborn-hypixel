@@ -5,6 +5,7 @@ import { RawSkywars } from './RawSkywars'
 import { RawBedwars } from './RawBedwars'
 import { RawMurderMystery } from './RawMurderMystery'
 import { RawDuels } from './RawDuels'
+import { RawWoolGames } from './RawWoolGames.js'
 
 export interface RawPlayer {
     _id?: string
@@ -77,5 +78,6 @@ export interface RawPlayer {
         Bedwars?: RawBedwars
         MurderMystery?: RawMurderMystery
         Duels?: RawDuels
+        WoolGames?: RawWoolGames
     }
 }

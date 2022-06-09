@@ -3,6 +3,7 @@ import { Bedwars } from './Bedwars'
 import { Skywars } from './Skywars'
 import { MurderMystery } from './MurderMystery'
 import { UHC } from './UHC'
+import { WoolGames } from './WoolGames.js'
 
 export interface Player {
     uuid: string
@@ -35,5 +36,6 @@ nameHistory: string[]
         Skywars?: Skywars
         MurderMystery?: MurderMystery
         UHC?: UHC
+        WoolGames?: WoolGames
     }
 }

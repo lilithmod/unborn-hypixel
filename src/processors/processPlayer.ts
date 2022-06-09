@@ -7,9 +7,10 @@ import { processSkywars } from './processSkywars'
 import { processBedwars } from './processBedwars'
 import calcLevel from '../utils/calclevel'
 import tagCalc from '../utils/calctag'
+import { processWoolGames } from './processWoolGames.js'
 
 
-export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 'murdermystery' | 'bedwars' | 'skywars' | 'uhc'> = []): Player {
+export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 'murdermystery' | 'bedwars' | 'skywars' | 'uhc' | 'wool'> = []): Player {
     const json: RawPlayer = input ?? {}
     const stats: any = {}
     statsToProcess.forEach(item => {
@@ -28,6 +29,9 @@ export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 
                 break;
             case 'uhc':
                 stats.UHC = processUHC(json.stats.UHC == null ? {} : json.stats.UHC)
+                break;
+            case 'wool':
+                stats.WoolGames = processWoolGames(json.stats.WoolGames == null ? {} : json.stats.WoolGames)
                 break;
         }
     })
