@@ -13,6 +13,7 @@ import { processWoolGames } from './processWoolGames.js'
 export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 'murdermystery' | 'bedwars' | 'skywars' | 'uhc' | 'wool'> = []): Player {
     const json: RawPlayer = input ?? {}
     const stats: any = {}
+    const tag = tagCalc.getString(tagCalc.calcTag(json))
     statsToProcess.forEach(item => {
         switch(item) {
             case 'duels':
@@ -56,7 +57,7 @@ export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 
         nameHistory: json.knownAliases ?? [],
         prefix: json.prefix ?? '',
         rank: json.rank ?? '',
-        rankF: tagCalc.getString(tagCalc.calcTag(json)) === '&7' ? tagCalc.getString(tagCalc.calcTag(json)) : tagCalc.getString(tagCalc.calcTag(json)) + ' ',
+        rankF: tag === '&7' ? tag : tag + ' ',
         rankPlusColor: json.rankPlusColor ?? '',
         username: json.displayname ?? '',
         uuid: json.uuid ?? '',
