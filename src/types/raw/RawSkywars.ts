@@ -6,6 +6,24 @@ export interface RawSkywars {
     'SkyWars_openedEpics'?: number
     'SkyWars_openedLegendaries'?: number
     'SkyWars_openedRares'?: number
+    'SkyWars_skywars_rating_10_18_position'?: number
+    'SkyWars_skywars_rating_10_18_rating'?: number
+    'SkyWars_skywars_rating_10_19_position'?: number
+    'SkyWars_skywars_rating_10_19_rating'?: number
+    'SkyWars_skywars_rating_10_20_position'?: number
+    'SkyWars_skywars_rating_10_20_rating'?: number
+    'SkyWars_skywars_rating_11_18_position'?: number
+    'SkyWars_skywars_rating_11_18_rating'?: number
+    'SkyWars_skywars_rating_11_19_position'?: number
+    'SkyWars_skywars_rating_11_19_rating'?: number
+    'SkyWars_skywars_rating_11_20_position'?: number
+    'SkyWars_skywars_rating_11_20_rating'?: number
+    'SkyWars_skywars_rating_12_18_position'?: number
+    'SkyWars_skywars_rating_12_18_rating'?: number
+    'SkyWars_skywars_rating_12_19_position'?: number
+    'SkyWars_skywars_rating_12_19_rating'?: number
+    'SkyWars_skywars_rating_12_20_position'?: number
+    'SkyWars_skywars_rating_12_20_rating'?: number
     'SkyWars_skywars_rating_1_19_position'?: number
     'SkyWars_skywars_rating_1_19_rating'?: number
     'SkyWars_skywars_rating_1_20_position'?: number
@@ -66,24 +84,6 @@ export interface RawSkywars {
     'SkyWars_skywars_rating_9_19_rating'?: number
     'SkyWars_skywars_rating_9_20_position'?: number
     'SkyWars_skywars_rating_9_20_rating'?: number
-    'SkyWars_skywars_rating_10_18_position'?: number
-    'SkyWars_skywars_rating_10_18_rating'?: number
-    'SkyWars_skywars_rating_10_19_position'?: number
-    'SkyWars_skywars_rating_10_19_rating'?: number
-    'SkyWars_skywars_rating_10_20_position'?: number
-    'SkyWars_skywars_rating_10_20_rating'?: number
-    'SkyWars_skywars_rating_11_18_position'?: number
-    'SkyWars_skywars_rating_11_18_rating'?: number
-    'SkyWars_skywars_rating_11_19_position'?: number
-    'SkyWars_skywars_rating_11_19_rating'?: number
-    'SkyWars_skywars_rating_11_20_position'?: number
-    'SkyWars_skywars_rating_11_20_rating'?: number
-    'SkyWars_skywars_rating_12_18_position'?: number
-    'SkyWars_skywars_rating_12_18_rating'?: number
-    'SkyWars_skywars_rating_12_19_position'?: number
-    'SkyWars_skywars_rating_12_19_rating'?: number
-    'SkyWars_skywars_rating_12_20_position'?: number
-    'SkyWars_skywars_rating_12_20_rating'?: number
     'activeCage'?: string
     'activeDeathCry'?: string
     'activeKillEffect'?: string
@@ -175,10 +175,16 @@ export interface RawSkywars {
     'arrows_hit_kit_mega_mega_baseball-player'?: number
     'arrows_hit_kit_mega_mega_cannoneer'?: number
     'arrows_hit_kit_mega_mega_default'?: number
+    'arrows_hit_kit_mega_mega_fisherman'?: number
     'arrows_hit_kit_mega_mega_healer'?: number
+    'arrows_hit_kit_mega_mega_hellhound'?: number
     'arrows_hit_kit_mega_mega_hunter'?: number
     'arrows_hit_kit_mega_mega_knight'?: number
+    'arrows_hit_kit_mega_mega_paladin'?: number
+    'arrows_hit_kit_mega_mega_pyromaniac'?: number
     'arrows_hit_kit_mega_mega_scout'?: number
+    'arrows_hit_kit_mega_mega_skeletor'?: number
+    'arrows_hit_kit_mega_mega_witch'?: number
     'arrows_hit_kit_mining_team_cannoneer'?: number
     'arrows_hit_kit_mining_team_speleologist'?: number
     'arrows_hit_kit_mythical_end-lord'?: number
@@ -188,6 +194,7 @@ export interface RawSkywars {
     'arrows_hit_kit_mythical_thundermeister'?: number
     'arrows_hit_kit_ranked_ranked_armorer'?: number
     'arrows_hit_kit_ranked_ranked_athlete'?: number
+    'arrows_hit_kit_ranked_ranked_blacksmith'?: number
     'arrows_hit_kit_ranked_ranked_bowman'?: number
     'arrows_hit_kit_ranked_ranked_champion'?: number
     'arrows_hit_kit_ranked_ranked_default'?: number
@@ -317,11 +324,16 @@ export interface RawSkywars {
     'arrows_shot_kit_mega_mega_baseball-player'?: number
     'arrows_shot_kit_mega_mega_cannoneer'?: number
     'arrows_shot_kit_mega_mega_default'?: number
+    'arrows_shot_kit_mega_mega_fisherman'?: number
     'arrows_shot_kit_mega_mega_healer'?: number
+    'arrows_shot_kit_mega_mega_hellhound'?: number
     'arrows_shot_kit_mega_mega_hunter'?: number
     'arrows_shot_kit_mega_mega_knight'?: number
+    'arrows_shot_kit_mega_mega_paladin'?: number
+    'arrows_shot_kit_mega_mega_pyromaniac'?: number
     'arrows_shot_kit_mega_mega_scout'?: number
     'arrows_shot_kit_mega_mega_skeletor'?: number
+    'arrows_shot_kit_mega_mega_witch'?: number
     'arrows_shot_kit_mining_team_cannoneer'?: number
     'arrows_shot_kit_mining_team_speleologist'?: number
     'arrows_shot_kit_mythical_end-lord'?: number
@@ -331,6 +343,7 @@ export interface RawSkywars {
     'arrows_shot_kit_mythical_thundermeister'?: number
     'arrows_shot_kit_ranked_ranked_armorer'?: number
     'arrows_shot_kit_ranked_ranked_athlete'?: number
+    'arrows_shot_kit_ranked_ranked_blacksmith'?: number
     'arrows_shot_kit_ranked_ranked_bowman'?: number
     'arrows_shot_kit_ranked_ranked_champion'?: number
     'arrows_shot_kit_ranked_ranked_default'?: number
@@ -464,11 +477,13 @@ export interface RawSkywars {
     'assists_kit_mega_mega_baseball-player'?: number
     'assists_kit_mega_mega_cannoneer'?: number
     'assists_kit_mega_mega_default'?: number
+    'assists_kit_mega_mega_fisherman'?: number
     'assists_kit_mega_mega_healer'?: number
     'assists_kit_mega_mega_hellhound'?: number
     'assists_kit_mega_mega_hunter'?: number
     'assists_kit_mega_mega_knight'?: number
     'assists_kit_mega_mega_paladin'?: number
+    'assists_kit_mega_mega_pyromaniac'?: number
     'assists_kit_mega_mega_scout'?: number
     'assists_kit_mega_mega_skeletor'?: number
     'assists_kit_mega_mega_witch'?: number
@@ -482,6 +497,7 @@ export interface RawSkywars {
     'assists_kit_mythical_thundermeister'?: number
     'assists_kit_ranked_ranked_armorer'?: number
     'assists_kit_ranked_ranked_athlete'?: number
+    'assists_kit_ranked_ranked_blacksmith'?: number
     'assists_kit_ranked_ranked_bowman'?: number
     'assists_kit_ranked_ranked_champion'?: number
     'assists_kit_ranked_ranked_default'?: number
@@ -585,17 +601,31 @@ export interface RawSkywars {
     'bow_kills_kit_defending_team_frog'?: number
     'bow_kills_kit_defending_team_golem'?: number
     'bow_kills_kit_mega_mega_armorer'?: number
+    'bow_kills_kit_mega_mega_armorsmith'?: number
     'bow_kills_kit_mega_mega_baseball-player'?: number
+    'bow_kills_kit_mega_mega_cannoneer'?: number
+    'bow_kills_kit_mega_mega_fisherman'?: number
+    'bow_kills_kit_mega_mega_healer'?: number
+    'bow_kills_kit_mega_mega_hellhound'?: number
     'bow_kills_kit_mega_mega_hunter'?: number
     'bow_kills_kit_mega_mega_knight'?: number
+    'bow_kills_kit_mega_mega_paladin'?: number
+    'bow_kills_kit_mega_mega_pyromaniac'?: number
     'bow_kills_kit_mega_mega_scout'?: number
+    'bow_kills_kit_mega_mega_skeletor'?: number
+    'bow_kills_kit_mega_mega_witch'?: number
     'bow_kills_kit_mythical_end-lord'?: number
     'bow_kills_kit_mythical_fishmonger'?: number
     'bow_kills_kit_mythical_nether-lord'?: number
     'bow_kills_kit_ranked_ranked_armorer'?: number
+    'bow_kills_kit_ranked_ranked_athlete'?: number
+    'bow_kills_kit_ranked_ranked_blacksmith'?: number
     'bow_kills_kit_ranked_ranked_bowman'?: number
     'bow_kills_kit_ranked_ranked_champion'?: number
+    'bow_kills_kit_ranked_ranked_healer'?: number
+    'bow_kills_kit_ranked_ranked_hound'?: number
     'bow_kills_kit_ranked_ranked_magician'?: number
+    'bow_kills_kit_ranked_ranked_paladin'?: number
     'bow_kills_kit_ranked_ranked_pyromancer'?: number
     'bow_kills_kit_ranked_ranked_scout'?: number
     'bow_kills_kit_supporting_team_armorsmith'?: number
@@ -979,11 +1009,13 @@ export interface RawSkywars {
     'chests_opened_kit_mega_mega_baseball-player'?: number
     'chests_opened_kit_mega_mega_cannoneer'?: number
     'chests_opened_kit_mega_mega_default'?: number
+    'chests_opened_kit_mega_mega_fisherman'?: number
     'chests_opened_kit_mega_mega_healer'?: number
     'chests_opened_kit_mega_mega_hellhound'?: number
     'chests_opened_kit_mega_mega_hunter'?: number
     'chests_opened_kit_mega_mega_knight'?: number
     'chests_opened_kit_mega_mega_paladin'?: number
+    'chests_opened_kit_mega_mega_pyromaniac'?: number
     'chests_opened_kit_mega_mega_scout'?: number
     'chests_opened_kit_mega_mega_skeletor'?: number
     'chests_opened_kit_mega_mega_witch'?: number
@@ -997,6 +1029,7 @@ export interface RawSkywars {
     'chests_opened_kit_mythical_thundermeister'?: number
     'chests_opened_kit_ranked_ranked_armorer'?: number
     'chests_opened_kit_ranked_ranked_athlete'?: number
+    'chests_opened_kit_ranked_ranked_blacksmith'?: number
     'chests_opened_kit_ranked_ranked_bowman'?: number
     'chests_opened_kit_ranked_ranked_champion'?: number
     'chests_opened_kit_ranked_ranked_default'?: number
@@ -1155,11 +1188,13 @@ export interface RawSkywars {
     'deaths_kit_mega_mega_baseball-player'?: number
     'deaths_kit_mega_mega_cannoneer'?: number
     'deaths_kit_mega_mega_default'?: number
+    'deaths_kit_mega_mega_fisherman'?: number
     'deaths_kit_mega_mega_healer'?: number
     'deaths_kit_mega_mega_hellhound'?: number
     'deaths_kit_mega_mega_hunter'?: number
     'deaths_kit_mega_mega_knight'?: number
     'deaths_kit_mega_mega_paladin'?: number
+    'deaths_kit_mega_mega_pyromaniac'?: number
     'deaths_kit_mega_mega_scout'?: number
     'deaths_kit_mega_mega_skeletor'?: number
     'deaths_kit_mega_mega_witch'?: number
@@ -1173,6 +1208,7 @@ export interface RawSkywars {
     'deaths_kit_mythical_thundermeister'?: number
     'deaths_kit_ranked_ranked_armorer'?: number
     'deaths_kit_ranked_ranked_athlete'?: number
+    'deaths_kit_ranked_ranked_blacksmith'?: number
     'deaths_kit_ranked_ranked_bowman'?: number
     'deaths_kit_ranked_ranked_champion'?: number
     'deaths_kit_ranked_ranked_default'?: number
@@ -1397,11 +1433,16 @@ export interface RawSkywars {
     'fastest_win_kit_mega_mega_baseball-player'?: number
     'fastest_win_kit_mega_mega_cannoneer'?: number
     'fastest_win_kit_mega_mega_default'?: number
+    'fastest_win_kit_mega_mega_fisherman'?: number
     'fastest_win_kit_mega_mega_healer'?: number
+    'fastest_win_kit_mega_mega_hellhound'?: number
     'fastest_win_kit_mega_mega_hunter'?: number
     'fastest_win_kit_mega_mega_knight'?: number
     'fastest_win_kit_mega_mega_paladin'?: number
+    'fastest_win_kit_mega_mega_pyromaniac'?: number
     'fastest_win_kit_mega_mega_scout'?: number
+    'fastest_win_kit_mega_mega_skeletor'?: number
+    'fastest_win_kit_mega_mega_witch'?: number
     'fastest_win_kit_mining_team_cannoneer'?: number
     'fastest_win_kit_mining_team_default'?: number
     'fastest_win_kit_mining_team_speleologist'?: number
@@ -1412,6 +1453,7 @@ export interface RawSkywars {
     'fastest_win_kit_mythical_thundermeister'?: number
     'fastest_win_kit_ranked_ranked_armorer'?: number
     'fastest_win_kit_ranked_ranked_athlete'?: number
+    'fastest_win_kit_ranked_ranked_blacksmith'?: number
     'fastest_win_kit_ranked_ranked_bowman'?: number
     'fastest_win_kit_ranked_ranked_champion'?: number
     'fastest_win_kit_ranked_ranked_default'?: number
@@ -1557,10 +1599,13 @@ export interface RawSkywars {
     'games_kit_mega_mega_baseball-player'?: number
     'games_kit_mega_mega_cannoneer'?: number
     'games_kit_mega_mega_default'?: number
+    'games_kit_mega_mega_fisherman'?: number
     'games_kit_mega_mega_healer'?: number
+    'games_kit_mega_mega_hellhound'?: number
     'games_kit_mega_mega_hunter'?: number
     'games_kit_mega_mega_knight'?: number
     'games_kit_mega_mega_paladin'?: number
+    'games_kit_mega_mega_pyromaniac'?: number
     'games_kit_mega_mega_scout'?: number
     'games_kit_mega_mega_skeletor'?: number
     'games_kit_mega_mega_witch'?: number
@@ -1574,6 +1619,7 @@ export interface RawSkywars {
     'games_kit_mythical_thundermeister'?: number
     'games_kit_ranked_ranked_armorer'?: number
     'games_kit_ranked_ranked_athlete'?: number
+    'games_kit_ranked_ranked_blacksmith'?: number
     'games_kit_ranked_ranked_bowman'?: number
     'games_kit_ranked_ranked_champion'?: number
     'games_kit_ranked_ranked_default'?: number
@@ -2150,14 +2196,6 @@ export interface RawSkywars {
     'hunters_vs_beasts_explained'?: number
     'hunters_vs_beasts_explained_last'?: number
     'inGamePresentsCap_2017_1'?: number
-    'inGamePresentsCap_2017_2'?: number
-    'inGamePresentsCap_2017_3'?: number
-    'inGamePresentsCap_2017_4'?: number
-    'inGamePresentsCap_2017_5'?: number
-    'inGamePresentsCap_2017_6'?: number
-    'inGamePresentsCap_2017_7'?: number
-    'inGamePresentsCap_2017_8'?: number
-    'inGamePresentsCap_2017_9'?: number
     'inGamePresentsCap_2017_10'?: number
     'inGamePresentsCap_2017_11'?: number
     'inGamePresentsCap_2017_12'?: number
@@ -2168,6 +2206,7 @@ export interface RawSkywars {
     'inGamePresentsCap_2017_17'?: number
     'inGamePresentsCap_2017_18'?: number
     'inGamePresentsCap_2017_19'?: number
+    'inGamePresentsCap_2017_2'?: number
     'inGamePresentsCap_2017_20'?: number
     'inGamePresentsCap_2017_21'?: number
     'inGamePresentsCap_2017_22'?: number
@@ -2178,17 +2217,16 @@ export interface RawSkywars {
     'inGamePresentsCap_2017_27'?: number
     'inGamePresentsCap_2017_28'?: number
     'inGamePresentsCap_2017_29'?: number
+    'inGamePresentsCap_2017_3'?: number
     'inGamePresentsCap_2017_30'?: number
     'inGamePresentsCap_2017_31'?: number
+    'inGamePresentsCap_2017_4'?: number
+    'inGamePresentsCap_2017_5'?: number
+    'inGamePresentsCap_2017_6'?: number
+    'inGamePresentsCap_2017_7'?: number
+    'inGamePresentsCap_2017_8'?: number
+    'inGamePresentsCap_2017_9'?: number
     'inGamePresentsCap_2018_1'?: number
-    'inGamePresentsCap_2018_2'?: number
-    'inGamePresentsCap_2018_3'?: number
-    'inGamePresentsCap_2018_4'?: number
-    'inGamePresentsCap_2018_5'?: number
-    'inGamePresentsCap_2018_6'?: number
-    'inGamePresentsCap_2018_7'?: number
-    'inGamePresentsCap_2018_8'?: number
-    'inGamePresentsCap_2018_9'?: number
     'inGamePresentsCap_2018_10'?: number
     'inGamePresentsCap_2018_11'?: number
     'inGamePresentsCap_2018_12'?: number
@@ -2199,6 +2237,7 @@ export interface RawSkywars {
     'inGamePresentsCap_2018_17'?: number
     'inGamePresentsCap_2018_18'?: number
     'inGamePresentsCap_2018_19'?: number
+    'inGamePresentsCap_2018_2'?: number
     'inGamePresentsCap_2018_20'?: number
     'inGamePresentsCap_2018_21'?: number
     'inGamePresentsCap_2018_22'?: number
@@ -2209,17 +2248,16 @@ export interface RawSkywars {
     'inGamePresentsCap_2018_27'?: number
     'inGamePresentsCap_2018_28'?: number
     'inGamePresentsCap_2018_29'?: number
+    'inGamePresentsCap_2018_3'?: number
     'inGamePresentsCap_2018_30'?: number
     'inGamePresentsCap_2018_31'?: number
+    'inGamePresentsCap_2018_4'?: number
+    'inGamePresentsCap_2018_5'?: number
+    'inGamePresentsCap_2018_6'?: number
+    'inGamePresentsCap_2018_7'?: number
+    'inGamePresentsCap_2018_8'?: number
+    'inGamePresentsCap_2018_9'?: number
     'inGamePresentsCap_2019_1'?: number
-    'inGamePresentsCap_2019_2'?: number
-    'inGamePresentsCap_2019_3'?: number
-    'inGamePresentsCap_2019_4'?: number
-    'inGamePresentsCap_2019_5'?: number
-    'inGamePresentsCap_2019_6'?: number
-    'inGamePresentsCap_2019_7'?: number
-    'inGamePresentsCap_2019_8'?: number
-    'inGamePresentsCap_2019_9'?: number
     'inGamePresentsCap_2019_10'?: number
     'inGamePresentsCap_2019_11'?: number
     'inGamePresentsCap_2019_12'?: number
@@ -2230,6 +2268,7 @@ export interface RawSkywars {
     'inGamePresentsCap_2019_17'?: number
     'inGamePresentsCap_2019_18'?: number
     'inGamePresentsCap_2019_19'?: number
+    'inGamePresentsCap_2019_2'?: number
     'inGamePresentsCap_2019_20'?: number
     'inGamePresentsCap_2019_21'?: number
     'inGamePresentsCap_2019_22'?: number
@@ -2240,17 +2279,16 @@ export interface RawSkywars {
     'inGamePresentsCap_2019_27'?: number
     'inGamePresentsCap_2019_28'?: number
     'inGamePresentsCap_2019_29'?: number
+    'inGamePresentsCap_2019_3'?: number
     'inGamePresentsCap_2019_30'?: number
     'inGamePresentsCap_2019_31'?: number
+    'inGamePresentsCap_2019_4'?: number
+    'inGamePresentsCap_2019_5'?: number
+    'inGamePresentsCap_2019_6'?: number
+    'inGamePresentsCap_2019_7'?: number
+    'inGamePresentsCap_2019_8'?: number
+    'inGamePresentsCap_2019_9'?: number
     'inGamePresentsCap_2020_1'?: number
-    'inGamePresentsCap_2020_2'?: number
-    'inGamePresentsCap_2020_3'?: number
-    'inGamePresentsCap_2020_4'?: number
-    'inGamePresentsCap_2020_5'?: number
-    'inGamePresentsCap_2020_6'?: number
-    'inGamePresentsCap_2020_7'?: number
-    'inGamePresentsCap_2020_8'?: number
-    'inGamePresentsCap_2020_9'?: number
     'inGamePresentsCap_2020_10'?: number
     'inGamePresentsCap_2020_11'?: number
     'inGamePresentsCap_2020_12'?: number
@@ -2261,6 +2299,7 @@ export interface RawSkywars {
     'inGamePresentsCap_2020_17'?: number
     'inGamePresentsCap_2020_18'?: number
     'inGamePresentsCap_2020_19'?: number
+    'inGamePresentsCap_2020_2'?: number
     'inGamePresentsCap_2020_20'?: number
     'inGamePresentsCap_2020_21'?: number
     'inGamePresentsCap_2020_22'?: number
@@ -2271,17 +2310,16 @@ export interface RawSkywars {
     'inGamePresentsCap_2020_27'?: number
     'inGamePresentsCap_2020_28'?: number
     'inGamePresentsCap_2020_29'?: number
+    'inGamePresentsCap_2020_3'?: number
     'inGamePresentsCap_2020_30'?: number
     'inGamePresentsCap_2020_31'?: number
+    'inGamePresentsCap_2020_4'?: number
+    'inGamePresentsCap_2020_5'?: number
+    'inGamePresentsCap_2020_6'?: number
+    'inGamePresentsCap_2020_7'?: number
+    'inGamePresentsCap_2020_8'?: number
+    'inGamePresentsCap_2020_9'?: number
     'inGamePresentsCap_2021_1'?: number
-    'inGamePresentsCap_2021_2'?: number
-    'inGamePresentsCap_2021_3'?: number
-    'inGamePresentsCap_2021_4'?: number
-    'inGamePresentsCap_2021_5'?: number
-    'inGamePresentsCap_2021_6'?: number
-    'inGamePresentsCap_2021_7'?: number
-    'inGamePresentsCap_2021_8'?: number
-    'inGamePresentsCap_2021_9'?: number
     'inGamePresentsCap_2021_10'?: number
     'inGamePresentsCap_2021_11'?: number
     'inGamePresentsCap_2021_12'?: number
@@ -2292,6 +2330,14 @@ export interface RawSkywars {
     'inGamePresentsCap_2021_17'?: number
     'inGamePresentsCap_2021_18'?: number
     'inGamePresentsCap_2021_19'?: number
+    'inGamePresentsCap_2021_2'?: number
+    'inGamePresentsCap_2021_3'?: number
+    'inGamePresentsCap_2021_4'?: number
+    'inGamePresentsCap_2021_5'?: number
+    'inGamePresentsCap_2021_6'?: number
+    'inGamePresentsCap_2021_7'?: number
+    'inGamePresentsCap_2021_8'?: number
+    'inGamePresentsCap_2021_9'?: number
     'items_enchanted'?: number
     'items_enchanted_lab'?: number
     'items_enchanted_tourney'?: number
@@ -2372,11 +2418,13 @@ export interface RawSkywars {
     'kills_kit_mega_mega_baseball-player'?: number
     'kills_kit_mega_mega_cannoneer'?: number
     'kills_kit_mega_mega_default'?: number
+    'kills_kit_mega_mega_fisherman'?: number
     'kills_kit_mega_mega_healer'?: number
     'kills_kit_mega_mega_hellhound'?: number
     'kills_kit_mega_mega_hunter'?: number
     'kills_kit_mega_mega_knight'?: number
     'kills_kit_mega_mega_paladin'?: number
+    'kills_kit_mega_mega_pyromaniac'?: number
     'kills_kit_mega_mega_scout'?: number
     'kills_kit_mega_mega_skeletor'?: number
     'kills_kit_mega_mega_witch'?: number
@@ -2390,6 +2438,7 @@ export interface RawSkywars {
     'kills_kit_mythical_thundermeister'?: number
     'kills_kit_ranked_ranked_armorer'?: number
     'kills_kit_ranked_ranked_athlete'?: number
+    'kills_kit_ranked_ranked_blacksmith'?: number
     'kills_kit_ranked_ranked_bowman'?: number
     'kills_kit_ranked_ranked_champion'?: number
     'kills_kit_ranked_ranked_default'?: number
@@ -2548,12 +2597,16 @@ export interface RawSkywars {
     'killstreak_kit_mega_mega_armorsmith'?: number
     'killstreak_kit_mega_mega_baseball-player'?: number
     'killstreak_kit_mega_mega_cannoneer'?: number
+    'killstreak_kit_mega_mega_fisherman'?: number
     'killstreak_kit_mega_mega_healer'?: number
+    'killstreak_kit_mega_mega_hellhound'?: number
     'killstreak_kit_mega_mega_hunter'?: number
     'killstreak_kit_mega_mega_knight'?: number
     'killstreak_kit_mega_mega_paladin'?: number
+    'killstreak_kit_mega_mega_pyromaniac'?: number
     'killstreak_kit_mega_mega_scout'?: number
     'killstreak_kit_mega_mega_skeletor'?: number
+    'killstreak_kit_mega_mega_witch'?: number
     'killstreak_kit_mining_team_cannoneer'?: number
     'killstreak_kit_mining_team_default'?: number
     'killstreak_kit_mining_team_speleologist'?: number
@@ -2564,6 +2617,7 @@ export interface RawSkywars {
     'killstreak_kit_mythical_thundermeister'?: number
     'killstreak_kit_ranked_ranked_armorer'?: number
     'killstreak_kit_ranked_ranked_athlete'?: number
+    'killstreak_kit_ranked_ranked_blacksmith'?: number
     'killstreak_kit_ranked_ranked_bowman'?: number
     'killstreak_kit_ranked_ranked_champion'?: number
     'killstreak_kit_ranked_ranked_default'?: number
@@ -2753,6 +2807,7 @@ export interface RawSkywars {
     'kit_ranked_ranked_armorer_inventory'?: any
     'kit_ranked_ranked_armorer_inventory_auto_equip_armor'?: boolean
     'kit_ranked_ranked_athlete_inventory'?: any
+    'kit_ranked_ranked_blacksmith_inventory'?: number
     'kit_ranked_ranked_bowman_inventory'?: any
     'kit_ranked_ranked_champion_inventory'?: any
     'kit_ranked_ranked_healer_inventory'?: any
@@ -2928,10 +2983,16 @@ export interface RawSkywars {
     'longest_bow_kill_kit_mega_mega_armorsmith'?: number
     'longest_bow_kill_kit_mega_mega_baseball-player'?: number
     'longest_bow_kill_kit_mega_mega_cannoneer'?: number
+    'longest_bow_kill_kit_mega_mega_fisherman'?: number
     'longest_bow_kill_kit_mega_mega_healer'?: number
+    'longest_bow_kill_kit_mega_mega_hellhound'?: number
     'longest_bow_kill_kit_mega_mega_hunter'?: number
     'longest_bow_kill_kit_mega_mega_knight'?: number
+    'longest_bow_kill_kit_mega_mega_paladin'?: number
+    'longest_bow_kill_kit_mega_mega_pyromaniac'?: number
     'longest_bow_kill_kit_mega_mega_scout'?: number
+    'longest_bow_kill_kit_mega_mega_skeletor'?: number
+    'longest_bow_kill_kit_mega_mega_witch'?: number
     'longest_bow_kill_kit_mining_team_cannoneer'?: number
     'longest_bow_kill_kit_mining_team_default'?: number
     'longest_bow_kill_kit_mining_team_speleologist'?: number
@@ -2942,6 +3003,7 @@ export interface RawSkywars {
     'longest_bow_kill_kit_mythical_thundermeister'?: number
     'longest_bow_kill_kit_ranked_ranked_armorer'?: number
     'longest_bow_kill_kit_ranked_ranked_athlete'?: number
+    'longest_bow_kill_kit_ranked_ranked_blacksmith'?: number
     'longest_bow_kill_kit_ranked_ranked_bowman'?: number
     'longest_bow_kill_kit_ranked_ranked_champion'?: number
     'longest_bow_kill_kit_ranked_ranked_default'?: number
@@ -3057,10 +3119,16 @@ export interface RawSkywars {
     'longest_bow_shot_kit_mega_mega_baseball-player'?: number
     'longest_bow_shot_kit_mega_mega_cannoneer'?: number
     'longest_bow_shot_kit_mega_mega_default'?: number
+    'longest_bow_shot_kit_mega_mega_fisherman'?: number
     'longest_bow_shot_kit_mega_mega_healer'?: number
+    'longest_bow_shot_kit_mega_mega_hellhound'?: number
     'longest_bow_shot_kit_mega_mega_hunter'?: number
     'longest_bow_shot_kit_mega_mega_knight'?: number
+    'longest_bow_shot_kit_mega_mega_paladin'?: number
+    'longest_bow_shot_kit_mega_mega_pyromaniac'?: number
     'longest_bow_shot_kit_mega_mega_scout'?: number
+    'longest_bow_shot_kit_mega_mega_skeletor'?: number
+    'longest_bow_shot_kit_mega_mega_witch'?: number
     'longest_bow_shot_kit_mining_team_cannoneer'?: number
     'longest_bow_shot_kit_mining_team_speleologist'?: number
     'longest_bow_shot_kit_mythical_end-lord'?: number
@@ -3070,6 +3138,7 @@ export interface RawSkywars {
     'longest_bow_shot_kit_mythical_thundermeister'?: number
     'longest_bow_shot_kit_ranked_ranked_armorer'?: number
     'longest_bow_shot_kit_ranked_ranked_athlete'?: number
+    'longest_bow_shot_kit_ranked_ranked_blacksmith'?: number
     'longest_bow_shot_kit_ranked_ranked_bowman'?: number
     'longest_bow_shot_kit_ranked_ranked_champion'?: number
     'longest_bow_shot_kit_ranked_ranked_default'?: number
@@ -3195,11 +3264,13 @@ export interface RawSkywars {
     'losses_kit_mega_mega_baseball-player'?: number
     'losses_kit_mega_mega_cannoneer'?: number
     'losses_kit_mega_mega_default'?: number
+    'losses_kit_mega_mega_fisherman'?: number
     'losses_kit_mega_mega_healer'?: number
     'losses_kit_mega_mega_hellhound'?: number
     'losses_kit_mega_mega_hunter'?: number
     'losses_kit_mega_mega_knight'?: number
     'losses_kit_mega_mega_paladin'?: number
+    'losses_kit_mega_mega_pyromaniac'?: number
     'losses_kit_mega_mega_scout'?: number
     'losses_kit_mega_mega_skeletor'?: number
     'losses_kit_mega_mega_witch'?: number
@@ -3213,6 +3284,7 @@ export interface RawSkywars {
     'losses_kit_mythical_thundermeister'?: number
     'losses_kit_ranked_ranked_armorer'?: number
     'losses_kit_ranked_ranked_athlete'?: number
+    'losses_kit_ranked_ranked_blacksmith'?: number
     'losses_kit_ranked_ranked_bowman'?: number
     'losses_kit_ranked_ranked_champion'?: number
     'losses_kit_ranked_ranked_default'?: number
@@ -3642,12 +3714,16 @@ export interface RawSkywars {
     'most_kills_game_kit_mega_mega_baseball-player'?: number
     'most_kills_game_kit_mega_mega_cannoneer'?: number
     'most_kills_game_kit_mega_mega_default'?: number
+    'most_kills_game_kit_mega_mega_fisherman'?: number
     'most_kills_game_kit_mega_mega_healer'?: number
     'most_kills_game_kit_mega_mega_hellhound'?: number
     'most_kills_game_kit_mega_mega_hunter'?: number
     'most_kills_game_kit_mega_mega_knight'?: number
     'most_kills_game_kit_mega_mega_paladin'?: number
+    'most_kills_game_kit_mega_mega_pyromaniac'?: number
     'most_kills_game_kit_mega_mega_scout'?: number
+    'most_kills_game_kit_mega_mega_skeletor'?: number
+    'most_kills_game_kit_mega_mega_witch'?: number
     'most_kills_game_kit_mining_team_cannoneer'?: number
     'most_kills_game_kit_mining_team_default'?: number
     'most_kills_game_kit_mining_team_speleologist'?: number
@@ -3658,6 +3734,7 @@ export interface RawSkywars {
     'most_kills_game_kit_mythical_thundermeister'?: number
     'most_kills_game_kit_ranked_ranked_armorer'?: number
     'most_kills_game_kit_ranked_ranked_athlete'?: number
+    'most_kills_game_kit_ranked_ranked_blacksmith'?: number
     'most_kills_game_kit_ranked_ranked_bowman'?: number
     'most_kills_game_kit_ranked_ranked_champion'?: number
     'most_kills_game_kit_ranked_ranked_default'?: number
@@ -3960,11 +4037,13 @@ export interface RawSkywars {
     'survived_players_kit_mega_mega_baseball-player'?: number
     'survived_players_kit_mega_mega_cannoneer'?: number
     'survived_players_kit_mega_mega_default'?: number
+    'survived_players_kit_mega_mega_fisherman'?: number
     'survived_players_kit_mega_mega_healer'?: number
     'survived_players_kit_mega_mega_hellhound'?: number
     'survived_players_kit_mega_mega_hunter'?: number
     'survived_players_kit_mega_mega_knight'?: number
     'survived_players_kit_mega_mega_paladin'?: number
+    'survived_players_kit_mega_mega_pyromaniac'?: number
     'survived_players_kit_mega_mega_scout'?: number
     'survived_players_kit_mega_mega_skeletor'?: number
     'survived_players_kit_mega_mega_witch'?: number
@@ -3978,6 +4057,7 @@ export interface RawSkywars {
     'survived_players_kit_mythical_thundermeister'?: number
     'survived_players_kit_ranked_ranked_armorer'?: number
     'survived_players_kit_ranked_ranked_athlete'?: number
+    'survived_players_kit_ranked_ranked_blacksmith'?: number
     'survived_players_kit_ranked_ranked_bowman'?: number
     'survived_players_kit_ranked_ranked_champion'?: number
     'survived_players_kit_ranked_ranked_default'?: number
@@ -4155,11 +4235,13 @@ export interface RawSkywars {
     'time_played_kit_mega_mega_baseball-player'?: number
     'time_played_kit_mega_mega_cannoneer'?: number
     'time_played_kit_mega_mega_default'?: number
+    'time_played_kit_mega_mega_fisherman'?: number
     'time_played_kit_mega_mega_healer'?: number
     'time_played_kit_mega_mega_hellhound'?: number
     'time_played_kit_mega_mega_hunter'?: number
     'time_played_kit_mega_mega_knight'?: number
     'time_played_kit_mega_mega_paladin'?: number
+    'time_played_kit_mega_mega_pyromaniac'?: number
     'time_played_kit_mega_mega_scout'?: number
     'time_played_kit_mega_mega_skeletor'?: number
     'time_played_kit_mega_mega_witch'?: number
@@ -4173,6 +4255,7 @@ export interface RawSkywars {
     'time_played_kit_mythical_thundermeister'?: number
     'time_played_kit_ranked_ranked_armorer'?: number
     'time_played_kit_ranked_ranked_athlete'?: number
+    'time_played_kit_ranked_ranked_blacksmith'?: number
     'time_played_kit_ranked_ranked_bowman'?: number
     'time_played_kit_ranked_ranked_champion'?: number
     'time_played_kit_ranked_ranked_default'?: number
@@ -4398,11 +4481,16 @@ export interface RawSkywars {
     'void_kills_kit_mega_mega_armorsmith'?: number
     'void_kills_kit_mega_mega_baseball-player'?: number
     'void_kills_kit_mega_mega_cannoneer'?: number
+    'void_kills_kit_mega_mega_fisherman'?: number
     'void_kills_kit_mega_mega_healer'?: number
     'void_kills_kit_mega_mega_hellhound'?: number
     'void_kills_kit_mega_mega_hunter'?: number
     'void_kills_kit_mega_mega_knight'?: number
+    'void_kills_kit_mega_mega_paladin'?: number
+    'void_kills_kit_mega_mega_pyromaniac'?: number
     'void_kills_kit_mega_mega_scout'?: number
+    'void_kills_kit_mega_mega_skeletor'?: number
+    'void_kills_kit_mega_mega_witch'?: number
     'void_kills_kit_mining_team_cannoneer'?: number
     'void_kills_kit_mining_team_default'?: number
     'void_kills_kit_mining_team_speleologist'?: number
@@ -4413,6 +4501,7 @@ export interface RawSkywars {
     'void_kills_kit_mythical_thundermeister'?: number
     'void_kills_kit_ranked_ranked_armorer'?: number
     'void_kills_kit_ranked_ranked_athlete'?: number
+    'void_kills_kit_ranked_ranked_blacksmith'?: number
     'void_kills_kit_ranked_ranked_bowman'?: number
     'void_kills_kit_ranked_ranked_champion'?: number
     'void_kills_kit_ranked_ranked_default'?: number
@@ -4519,8 +4608,8 @@ export interface RawSkywars {
     'votes_Memorial'?: number
     'votes_Meteor'?: number
     'votes_Mothership'?: number
-    'votes_Onionring'?: number
     'votes_Onionring 2'?: number
+    'votes_Onionring'?: number
     'votes_Overfall'?: number
     'votes_Pitfall'?: number
     'votes_Plateau'?: number
@@ -4618,10 +4707,13 @@ export interface RawSkywars {
     'wins_kit_mega_mega_baseball-player'?: number
     'wins_kit_mega_mega_cannoneer'?: number
     'wins_kit_mega_mega_default'?: number
+    'wins_kit_mega_mega_fisherman'?: number
     'wins_kit_mega_mega_healer'?: number
+    'wins_kit_mega_mega_hellhound'?: number
     'wins_kit_mega_mega_hunter'?: number
     'wins_kit_mega_mega_knight'?: number
     'wins_kit_mega_mega_paladin'?: number
+    'wins_kit_mega_mega_pyromaniac'?: number
     'wins_kit_mega_mega_scout'?: number
     'wins_kit_mega_mega_skeletor'?: number
     'wins_kit_mega_mega_witch'?: number
@@ -4635,6 +4727,7 @@ export interface RawSkywars {
     'wins_kit_mythical_thundermeister'?: number
     'wins_kit_ranked_ranked_armorer'?: number
     'wins_kit_ranked_ranked_athlete'?: number
+    'wins_kit_ranked_ranked_blacksmith'?: number
     'wins_kit_ranked_ranked_bowman'?: number
     'wins_kit_ranked_ranked_champion'?: number
     'wins_kit_ranked_ranked_default'?: number
@@ -4773,11 +4866,16 @@ export interface RawSkywars {
     'winstreak_kit_mega_mega_baseball-player'?: number
     'winstreak_kit_mega_mega_cannoneer'?: number
     'winstreak_kit_mega_mega_default'?: number
+    'winstreak_kit_mega_mega_fisherman'?: number
     'winstreak_kit_mega_mega_healer'?: number
+    'winstreak_kit_mega_mega_hellhound'?: number
+    'winstreak_kit_mega_mega_hunter'?: number
     'winstreak_kit_mega_mega_knight'?: number
     'winstreak_kit_mega_mega_paladin'?: number
+    'winstreak_kit_mega_mega_pyromaniac'?: number
     'winstreak_kit_mega_mega_scout'?: number
     'winstreak_kit_mega_mega_skeletor'?: number
+    'winstreak_kit_mega_mega_witch'?: number
     'winstreak_kit_mining_team_cannoneer'?: number
     'winstreak_kit_mining_team_default'?: number
     'winstreak_kit_mining_team_speleologist'?: number
@@ -4786,6 +4884,7 @@ export interface RawSkywars {
     'winstreak_kit_mythical_nether-lord'?: number
     'winstreak_kit_ranked_ranked_armorer'?: number
     'winstreak_kit_ranked_ranked_athlete'?: number
+    'winstreak_kit_ranked_ranked_blacksmith'?: number
     'winstreak_kit_ranked_ranked_bowman'?: number
     'winstreak_kit_ranked_ranked_champion'?: number
     'winstreak_kit_ranked_ranked_default'?: number

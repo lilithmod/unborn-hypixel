@@ -1,10 +1,6 @@
 import { RawDuels } from '../types/raw/RawDuels'
 import { Duels } from '../types/processed/Duels'
-
-export function cutOff(input: number): number {
-    return +input.toFixed(2)
-
-}
+import { cutOff } from '../utils/utils';
 
 export function processDuels(json: RawDuels): Duels {
     let [bridgeWins, bridgeLosses, uhcWins, uhcLosses, uhcDeaths, uhcKills] = Array(12).fill(0);
