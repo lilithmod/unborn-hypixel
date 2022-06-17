@@ -3,7 +3,9 @@ export interface WoolGames {
     progression: {
         layers: number
         experience: number
+        star: number
     }
+    starFormatted: string
     packages: string[]
     cosmetics: {
         barrier: string

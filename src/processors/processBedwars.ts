@@ -48,7 +48,7 @@ function getStarForExp(exp: number) {
     return level + Math.floor(expWithoutPrestiges / 5000)
 }
 
-function getFormattedStar(star: number) {
+export function getFormattedStar(star: number) {
     const prestige = getPrestige(star)
     switch (prestige) {
         case 'Stone':

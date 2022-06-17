@@ -1,13 +1,35 @@
 import { RawWoolGames } from '../types/raw/RawWoolGames.js'
 import { WoolGames } from '../types/processed/WoolGames.js'
+import { getFormattedStar } from './processBedwars.js'
+
+function getStarForExp(exp) {
+
+    if (exp < 1000) {
+        return 1
+    } else if (exp >= 1000 && exp < 3000) {
+        return 2
+    } else if (exp >= 3000 && exp < 6000) {
+        return 3
+    } else if (exp >= 6000 && exp < 10000) {
+        return 4
+    } else if (exp >= 10000 && exp < 15000) {
+        return 5
+    } else {
+        let alreadyStars = 6
+
+        return Math.floor((exp - 15000) / 5000) + alreadyStars
+    }
+}
 
 export function processWoolGames(json: RawWoolGames): WoolGames {
     const processed = {
         coins: json.coins ?? 0,
         progression: {
             layers: json.progression.layers ?? 0,
-            experience: json.progression.experience ?? 0
+            experience: json.progression.experience ?? 0,
+            star: getStarForExp(json.progression.experience ?? 0)
         },
+        starFormatted: getFormattedStar(getStarForExp(json.progression.experience ?? 0)),
         packages: json.packages ?? [],
         cosmetics: {
             barrier: json.barrier ?? '',
