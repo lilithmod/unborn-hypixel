@@ -19,6 +19,9 @@ export interface SkywarsKitStats {
     voidKills: number
     winstreak: number
     wins: number
+    wlr: number
+    kdr: number
+    bowRatio: number
 }
 
 export interface Head {
@@ -28,7 +31,6 @@ export interface Head {
     sacrifice: 'DECENT' | 'DIVINE' | 'EWW' | 'HEAVENLY' | 'MEH'
         | 'SALTY' | 'SUCCULENT' | 'TASTY' | 'YUCKY'
 }
-
 export interface Skywars {
     star: number
     starFormatted: string
@@ -58,6 +60,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             kits: {
                 armorer: SkywarsKitStats
                 cannoneer: SkywarsKitStats
@@ -142,6 +147,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             kits: {
                 enderman: SkywarsKitStats
                 fisherman: SkywarsKitStats
@@ -212,6 +220,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             kits: {
                 armorer: SkywarsKitStats
                 armorsmith: SkywarsKitStats
@@ -287,6 +298,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             kits: {
                 armorer: SkywarsKitStats
                 armorsmith: SkywarsKitStats
@@ -367,6 +381,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             gamemodes: {
                 hvb: {
                     wins: number
@@ -417,6 +434,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
         }
         labTeam: {
             arrowsHit: number
@@ -440,6 +460,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
         }
         ranked: {
             activeKit: string
@@ -465,6 +488,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
             kits: {
                 armorer: SkywarsKitStats
                 athlete: SkywarsKitStats
@@ -510,6 +536,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
         }
         crazySoloTourney: {
             arrowsHit: number
@@ -541,6 +570,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
         }
         insaneDoublesTourney: {
             arrowsHit: number
@@ -572,6 +604,9 @@ export interface Skywars {
             voidKills: number
             winstreak: number
             wins: number
+            wlr: number
+            kdr: number
+            bowRatio: number
         }
     }
     activeCosmetics: {
@@ -588,8 +623,8 @@ export interface Skywars {
     arrowsShot: number
     assists: number
     beastChance: number
-    blocks_broken: number
-    blocks_placed: number
+    blocksBroken: number
+    blocksPlaced: number
     bow_kills: number
     challengeAttempts: {
         total: number
@@ -716,7 +751,7 @@ export interface Skywars {
     soulWellLegendaries: number
     soulWellRares: number
     souls: number
-    souls_gathered: number
+    soulsGathered: number
     survivedPlayers: number
     timePlayed: number
     usedSoulWell: boolean
@@ -782,5 +817,8 @@ export interface Skywars {
     }
     winstreak: number
     wins: number
+    wlr: number
+    kdr: number
+    bowRatio: number
     xezbethLuck: number
 }
