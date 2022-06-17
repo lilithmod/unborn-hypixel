@@ -22,10 +22,14 @@ export interface WoolGames {
                 blocksBroken: number
                 deaths: number
                 gamesPlayed: number
+                kdr: number
                 kills: number
+                losses: number
                 powerups: number
                 wins: number
+                wlr: number
                 woolPlaced: number
+
             }
             classes: {
                 [kit: string]: {
@@ -33,9 +37,12 @@ export interface WoolGames {
                     blocksBroken: number
                     deaths: number
                     gamesPlayed: number
+                    kdr: number
                     kills: number
+                    losses: number
                     powerups: number
                     wins: number
+                    wlr: number
                     woolPlaced: number
                 }
             }

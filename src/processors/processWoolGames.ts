@@ -1,6 +1,7 @@
 import { RawWoolGames } from '../types/raw/RawWoolGames.js'
 import { WoolGames } from '../types/processed/WoolGames.js'
 import { getFormattedStar } from './processBedwars.js'
+import { cutOff } from '../utils/utils.js'
 
 function getStarForExp(exp) {
 
@@ -22,6 +23,8 @@ function getStarForExp(exp) {
 }
 
 export function processWoolGames(json: RawWoolGames): WoolGames {
+    const losses = (json.wool_wars.stats.games_played ?? 0) - (json.wool_wars.stats.wins ?? 0)
+
     const processed = {
         coins: json.coins ?? 0,
         progression: {
@@ -46,9 +49,12 @@ export function processWoolGames(json: RawWoolGames): WoolGames {
                     blocksBroken: json.wool_wars.stats.blocks_broken ?? 0,
                     deaths: json.wool_wars.stats.deaths ?? 0,
                     gamesPlayed: json.wool_wars.stats.games_played ?? 0,
+                    kdr: cutOff((json.wool_wars.stats.kills || 0) / (json.wool_wars.stats.deaths || 1)),
                     kills: json.wool_wars.stats.kills ?? 0,
+                    losses: losses,
                     powerups: json.wool_wars.stats.powerups_gotten ?? 0,
                     wins: json.wool_wars.stats.wins ?? 0,
+                    wlr: cutOff((json.wool_wars.stats.wins || 0) / (losses || 1)),
                     woolPlaced: json.wool_wars.stats.wool_placed ?? 0,
                 },
                 classes: {}
@@ -58,14 +64,19 @@ export function processWoolGames(json: RawWoolGames): WoolGames {
     }
 
     for (const clazz of Object.keys(json.wool_wars.stats.classes)) {
+        let clazzLosses = (json.wool_wars.stats.classes[clazz].games_played ?? 0) - (json.wool_wars.stats.classes[clazz].games_played ?? 0)
+
         processed.woolWars.stats.classes[clazz] = {
             assists: json.wool_wars.stats.classes[clazz].assists ?? 0,
             blocksBroken: json.wool_wars.stats.classes[clazz].blocks_broken ?? 0,
             deaths: json.wool_wars.stats.classes[clazz].deaths ?? 0,
             gamesPlayed: json.wool_wars.stats.classes[clazz].games_played ?? 0,
+            kdr: cutOff((json.wool_wars.stats.classes[clazz].kills || 0) / (json.wool_wars.stats.classes[clazz].deaths || 1)),
             kills: json.wool_wars.stats.classes[clazz].kills ?? 0,
+            losses: clazzLosses,
             powerups: json.wool_wars.stats.classes[clazz].powerups_gotten ?? 0,
             wins: json.wool_wars.stats.classes[clazz].wins ?? 0,
+            wlr: cutOff((json.wool_wars.stats.classes[clazz].wins || 0) / (clazzLosses || 1)),
             woolPlaced: json.wool_wars.stats.classes[clazz].wool_placed ?? 0,
         }
     }
