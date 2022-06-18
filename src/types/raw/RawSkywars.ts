@@ -155,6 +155,7 @@ export interface RawSkywars {
     'arrows_hit_kit_basic_solo_frog'?: number
     'arrows_hit_kit_basic_solo_grenade'?: number
     'arrows_hit_kit_basic_solo_healer'?: number
+    'arrows_hit_kit_basic_solo_pharaoh'?: number
     'arrows_hit_kit_basic_solo_princess'?: number
     'arrows_hit_kit_basic_solo_rookie'?: number
     'arrows_hit_kit_basic_solo_scout'?: number
@@ -303,6 +304,7 @@ export interface RawSkywars {
     'arrows_shot_kit_basic_solo_frog'?: number
     'arrows_shot_kit_basic_solo_grenade'?: number
     'arrows_shot_kit_basic_solo_healer'?: number
+    'arrows_shot_kit_basic_solo_pharaoh'?: number
     'arrows_shot_kit_basic_solo_princess'?: number
     'arrows_shot_kit_basic_solo_rookie'?: number
     'arrows_shot_kit_basic_solo_scout'?: number
@@ -444,6 +446,7 @@ export interface RawSkywars {
     'assists_kit_basic_solo_archeologist'?: number
     'assists_kit_basic_solo_armorsmith'?: number
     'assists_kit_basic_solo_baseball-player'?: number
+    'assists_kit_basic_solo_batguy'?: number
     'assists_kit_basic_solo_cactus'?: number
     'assists_kit_basic_solo_default'?: number
     'assists_kit_basic_solo_disco'?: number
@@ -571,11 +574,15 @@ export interface RawSkywars {
     'bow_kills_crazytourney'?: number
     'bow_kills_kit_advanced_solo_armorer'?: number
     'bow_kills_kit_advanced_solo_cannoneer'?: number
+    'bow_kills_kit_advanced_solo_enchanter'?: number
     'bow_kills_kit_advanced_solo_enderman'?: number
     'bow_kills_kit_advanced_solo_farmer'?: number
+    'bow_kills_kit_advanced_solo_hunter'?: number
+    'bow_kills_kit_advanced_solo_jester'?: number
     'bow_kills_kit_advanced_solo_knight'?: number
     'bow_kills_kit_advanced_solo_pyro'?: number
     'bow_kills_kit_advanced_solo_salmon'?: number
+    'bow_kills_kit_advanced_solo_sloth'?: number
     'bow_kills_kit_attacking_team_enderman'?: number
     'bow_kills_kit_attacking_team_energix'?: number
     'bow_kills_kit_attacking_team_fisherman'?: number
@@ -587,13 +594,20 @@ export interface RawSkywars {
     'bow_kills_kit_basic_solo_archeologist'?: number
     'bow_kills_kit_basic_solo_armorsmith'?: number
     'bow_kills_kit_basic_solo_batguy'?: number
+    'bow_kills_kit_basic_solo_default'?: number
     'bow_kills_kit_basic_solo_disco'?: number
     'bow_kills_kit_basic_solo_ecologist'?: number
     'bow_kills_kit_basic_solo_energix'?: number
+    'bow_kills_kit_basic_solo_fisherman'?: number
     'bow_kills_kit_basic_solo_frog'?: number
+    'bow_kills_kit_basic_solo_grenade'?: number
+    'bow_kills_kit_basic_solo_pharaoh'?: number
+    'bow_kills_kit_basic_solo_princess'?: number
     'bow_kills_kit_basic_solo_rookie'?: number
     'bow_kills_kit_basic_solo_scout'?: number
+    'bow_kills_kit_basic_solo_snowman'?: number
     'bow_kills_kit_basic_solo_speleologist'?: number
+    'bow_kills_kit_basic_solo_troll'?: number
     'bow_kills_kit_blacksmith_ranked_blacksmith'?: number
     'bow_kills_kit_defending_team_armorer'?: number
     'bow_kills_kit_defending_team_baseball-player'?: number
@@ -617,6 +631,7 @@ export interface RawSkywars {
     'bow_kills_kit_mythical_end-lord'?: number
     'bow_kills_kit_mythical_fishmonger'?: number
     'bow_kills_kit_mythical_nether-lord'?: number
+    'bow_kills_kit_mythical_thundermeister'?: number
     'bow_kills_kit_ranked_ranked_armorer'?: number
     'bow_kills_kit_ranked_ranked_athlete'?: number
     'bow_kills_kit_ranked_ranked_blacksmith'?: number
@@ -2732,6 +2747,7 @@ export interface RawSkywars {
     'kit_basic_solo_baseball-player_inventory'?: any
     'kit_basic_solo_batguy_inventory'?: any
     'kit_basic_solo_cactus_inventory'?: any
+    'kit_basic_solo_default_inventory'?: number
     'kit_basic_solo_disco_inventory'?: any
     'kit_basic_solo_ecologist_inventory'?: any
     'kit_basic_solo_energix_inventory'?: any
@@ -3099,6 +3115,7 @@ export interface RawSkywars {
     'longest_bow_shot_kit_basic_solo_frog'?: number
     'longest_bow_shot_kit_basic_solo_grenade'?: number
     'longest_bow_shot_kit_basic_solo_healer'?: number
+    'longest_bow_shot_kit_basic_solo_pharaoh'?: number
     'longest_bow_shot_kit_basic_solo_princess'?: number
     'longest_bow_shot_kit_basic_solo_rookie'?: number
     'longest_bow_shot_kit_basic_solo_scout'?: number
@@ -4880,8 +4897,10 @@ export interface RawSkywars {
     'winstreak_kit_mining_team_default'?: number
     'winstreak_kit_mining_team_speleologist'?: number
     'winstreak_kit_mythical_end-lord'?: number
+    'winstreak_kit_mythical_fishmonger'?: number
     'winstreak_kit_mythical_monster-trainer'?: number
     'winstreak_kit_mythical_nether-lord'?: number
+    'winstreak_kit_mythical_thundermeister'?: number
     'winstreak_kit_ranked_ranked_armorer'?: number
     'winstreak_kit_ranked_ranked_athlete'?: number
     'winstreak_kit_ranked_ranked_blacksmith'?: number

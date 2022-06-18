@@ -301,22 +301,6 @@ export interface Skywars {
             wlr: number
             kdr: number
             bowRatio: number
-            kits: {
-                armorer: SkywarsKitStats
-                armorsmith: SkywarsKitStats
-                baseballPlayer: SkywarsKitStats
-                cannoneer: SkywarsKitStats
-                fisherman: SkywarsKitStats
-                healer: SkywarsKitStats
-                hellhound: SkywarsKitStats
-                hunter: SkywarsKitStats
-                knight: SkywarsKitStats
-                paladin: SkywarsKitStats
-                pyromaniac: SkywarsKitStats
-                scout: SkywarsKitStats
-                skeletor: SkywarsKitStats
-                witch: SkywarsKitStats
-            }
             perks: {
                 arrowRecovery: number
                 blackMagic: number
