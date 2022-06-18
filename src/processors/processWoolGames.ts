@@ -63,7 +63,7 @@ export function processWoolGames(json: RawWoolGames): WoolGames {
         }
     }
 
-    for (const clazz of Object.keys(json.wool_wars?.stats?.classes)) {
+    for (const clazz of Object.keys(json.wool_wars?.stats?.classes ?? {})) {
         let clazzLosses = (json.wool_wars?.stats?.classes[clazz]?.games_played ?? 0) - (json.wool_wars?.stats?.classes[clazz]?.games_played ?? 0)
 
         processed.woolWars.stats.classes[clazz] = {
