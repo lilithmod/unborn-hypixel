@@ -1,6 +1,6 @@
 {
   "name": "@lilithmod/unborn-hypixel",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "A fully typed Hypixel API wrapper with a focus on completeness and prettiness",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

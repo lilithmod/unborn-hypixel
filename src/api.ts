@@ -1,10 +1,19 @@
 import fetch from 'node-fetch'
 import { RawPlayer } from './types/raw/RawPlayer'
 import { URLSearchParams } from 'url'
+import { setTimeout as setTimeoutAsync } from 'timers/promises'
 
-async function fetchJsonEndpoint(endpoint: string, query: any): Promise<object> {
-    const request = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`)
-    return (request.json() as object)
+async function fetchJsonEndpoint<T>(endpoint: string, query: any): Promise<T> {
+    let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`)
+    while (request.status === 429) {
+
+        if (request.headers.has('RateLimit-Reset')) {
+            await setTimeoutAsync(parseInt(request.headers.get('RateLimit-Reset')) * 1000)
+        } else await setTimeoutAsync(1000)
+
+        request = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`)
+    }
+    return await request.json()
 }
 
 export function dashedUUID(input: string): string {
