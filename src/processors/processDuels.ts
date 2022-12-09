@@ -2,6 +2,157 @@ import { RawDuels } from '../types/raw/RawDuels'
 import { Duels } from '../types/processed/Duels'
 import { cutOff } from '../utils/utils';
 
+function prettyPrintSkywarsKit(kit: string) {
+    switch (kit) {
+        case 'kit_ranked_ranked_armorer':
+            return 'Armorer'
+        case 'kit_ranked_ranked_athlete':
+            return 'Athlete'
+        case 'kit_ranked_ranked_blacksmith':
+            return 'Blacksmith'
+        case 'kit_ranked_ranked_bowman':
+            return 'Bowman'
+        case 'kit_ranked_ranked_champion':
+            return 'Champion'
+        case 'kit_ranked_ranked_healer':
+            return 'Healer'
+        case 'kit_ranked_ranked_hound':
+            return 'Hound'
+        case 'kit_ranked_ranked_magician':
+            return 'Magician'
+        case 'kit_ranked_ranked_paladin':
+            return 'Paladin'
+        case 'kit_ranked_ranked_pyromancer':
+            return 'Pyromancer'
+        case 'kit_ranked_ranked_scout':
+            return 'Scout'
+        case 'kit_advanced_solo_armorer':
+            return 'Armorer'
+        case 'kit_basic_solo_armorsmith':
+            return 'Armorsmith'
+        case 'kit_basic_solo_batguy':
+            return 'Batguy'
+        case 'kit_advanced_solo_cannoneer':
+            return 'Cannoneer'
+        case 'kit_basic_solo_default':
+            return 'Default'
+        case 'kit_basic_solo_disco':
+            return 'Disco'
+        case 'kit_basic_solo_ecologist':
+            return 'Ecologist'
+        case 'kit_advanced_solo_enchanter':
+            return 'Enchanted'
+        case 'kit_mythical_end-lord':
+            return 'End Lord'
+        case 'kit_advanced_solo_enderman':
+            return 'Enderman'
+        case 'kit_basic_solo_energix':
+            return 'Energix'
+        case 'kit_advanced_solo_farmer':
+            return 'Farmer'
+        case 'kit_basic_solo_fisherman':
+            return 'Fisherman'
+        case 'kit_mythical_fishmonger':
+            return 'Fishmonger'
+        case 'kit_basic_solo_frog':
+            return 'Frog'
+        case 'kit_basic_solo_grenade':
+            return 'Grenade'
+        case 'kit_advanced_solo_hunter':
+            return 'Hunter'
+        case 'kit_advanced_solo_jester':
+            return 'Jester'
+        case 'kit_advanced_solo_knight':
+            return 'Knight'
+        case 'kit_mythical_monster-trainer':
+            return 'Monster Trainer'
+        case 'kit_mythical_nether-lord':
+            return 'Nether Lord'
+        case 'kit_basic_solo_pharaoh':
+            return 'Pharaoh'
+        case 'kit_advanced_solo_pig-rider':
+            return 'Pig Rider'
+        case 'kit_basic_solo_princess':
+            return 'Princess'
+        case 'kit_basic_solo_rookie':
+            return 'Rookie'
+        case 'kit_advanced_solo_salmon':
+            return 'Salmon'
+        case 'kit_basic_solo_scout':
+            return 'Scout'
+        case 'kit_advanced_solo_sloth':
+            return 'Sloth'
+        case 'kit_basic_solo_snowman':
+            return 'Snowman'
+        case 'kit_basic_solo_speleologist':
+            return 'Speleologist'
+        case 'kit_mythical_thundermeister':
+            return 'Thundermeister'
+        case 'kit_basic_solo_troll':
+            return 'Troll'
+        case 'kit_attacking_team_enderman':
+            return 'Enderman'
+        case 'kit_attacking_team_energix':
+            return 'Energix'
+        case 'kit_attacking_team_engineer':
+            return 'Engineer'
+        case 'kit_attacking_team_fisherman':
+            return 'Fisherman'
+        case 'kit_attacking_team_grenade':
+            return 'Grenade'
+        case 'kit_attacking_team_hunter':
+            return 'Hunter'
+        case 'kit_attacking_team_knight':
+            return 'Knight'
+        case 'kit_attacking_team_pig-rider':
+            return 'Pig Rider'
+        case 'kit_attacking_team_salmon':
+            return 'Salmon'
+        case 'kit_attacking_team_scout':
+            return 'Scout'
+        case 'kit_attacking_team_snowman':
+            return 'Snowman'
+        case 'kit_defending_team_armorer':
+            return 'Armorer'
+        case 'kit_defending_team_baseball-player':
+            return 'Baseball Player'
+        case 'kit_defending_team_disco':
+            return 'Disco'
+        case 'kit_defending_team_farmer':
+            return 'Farmer'
+        case 'kit_defending_team_frog':
+            return 'Frog'
+        case 'kit_defending_team_golem':
+            return 'Golem'
+        case 'kit_defending_team_guardian':
+            return 'Guardian'
+        case 'kit_mining_team_cannoneer':
+            return 'Cannoneer'
+        case 'kit_mining_team_speleologist':
+            return 'Speleologist'
+        case 'kit_supporting_team_armorsmith':
+            return 'Armorsmith'
+        case 'kit_supporting_team_ecologist':
+            return 'Ecologist'
+        case 'kit_supporting_team_enchanter':
+            return 'Enchanter'
+        case 'kit_supporting_team_healer':
+            return 'Healer'
+        case 'kit_supporting_team_pharaoh':
+            return 'Pharoah'
+        case 'kit_supporting_team_princess':
+            return 'Princess'
+        case 'kit_supporting_team_pyro':
+            return 'Pyro'
+        case 'kit_supporting_team_rookie':
+            return 'Rookie'
+        case 'kit_supporting_team_zookeeper':
+            return 'Zookeeper'
+        default:
+            return 'None'
+    }
+}
+
 export function processDuels(json: RawDuels): Duels {
     let [bridgeWins, bridgeLosses, uhcWins, uhcLosses, uhcDeaths, uhcKills] = Array(12).fill(0);
     bridgeWins += json.bridge_duel_wins ?? 0
@@ -679,7 +830,8 @@ export function processDuels(json: RawDuels): Duels {
                 duels: {
                     best_winstreak: json.best_winstreak_mode_sw_duel ?? 0,
                     current_winstreak: json.current_winstreak_mode_sw_duel ?? 0,
-                    kit: json.sw_duels_kit_new3 ?? '',
+                    kit: prettyPrintSkywarsKit(json.sw_duels_kit_new3 ?? ''),
+                    kit_raw: json.sw_duels_kit_new3 ?? '',
                     wlr: cutOff((json.sw_duel_wins || 0) / (json.sw_duel_losses || 1)),
                     kdr: cutOff((json.sw_duel_kills || 0) / (json.sw_duel_deaths || 1)),
                     blocks_placed: json.sw_duel_blocks_placed ?? 0,
