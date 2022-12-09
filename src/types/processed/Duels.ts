@@ -645,6 +645,7 @@ export interface Duels {
                 'kills': number
                 'wlr': number
                 'kdr': number
+                'kit': string
                 'current_winstreak': number
                 'best_winstreak': number
             }

@@ -679,6 +679,7 @@ export function processDuels(json: RawDuels): Duels {
                 duels: {
                     best_winstreak: json.best_winstreak_mode_sw_duel ?? 0,
                     current_winstreak: json.current_winstreak_mode_sw_duel ?? 0,
+                    kit: json.sw_duels_kit_new3 ?? '',
                     wlr: cutOff((json.sw_duel_wins || 0) / (json.sw_duel_losses || 1)),
                     kdr: cutOff((json.sw_duel_kills || 0) / (json.sw_duel_deaths || 1)),
                     blocks_placed: json.sw_duel_blocks_placed ?? 0,
