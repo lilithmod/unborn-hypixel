@@ -1,10 +1,10 @@
-import fetch from 'node-fetch'
+import { fetch, FetchResultTypes } from '@sapphire/fetch'
 import { RawPlayer } from './types/raw/RawPlayer'
 import { URLSearchParams } from 'url'
 import { setTimeout as setTimeoutAsync } from 'timers/promises'
 
 async function fetchJsonEndpoint<T>(endpoint: string, query: any): Promise<T> {
-    let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`)
+    let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`, FetchResultTypes.Result)
     while (request.status === 429) {
 
         if (request.headers.has('RateLimit-Reset')) {
@@ -22,26 +22,18 @@ export function dashedUUID(input: string): string {
 
 export async function resolveUsername(input: string, dashes: boolean = true, throwErr: boolean = false): Promise<string> {
     if (!input.includes('-') || input.length < 17) {
-        let uuidResponseRequest
-        let uuidResponse: MojangAPIResponse | PlayerDbResponse
+
         try {
-            uuidResponseRequest = await Promise.any([fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`), fetch(`https://playerdb.co/api/player/minecraft/${input}`)])
-        } catch(e) {
-            if (throwErr) throw new Error('Failed to fetch UUID')
-            else return input
-        }
-        if (uuidResponseRequest.status !== 200) {
-            if (throwErr) throw new Error('Failed to fetch UUID')
-            else return input
-        }
-        uuidResponse = await uuidResponseRequest.json()
-        if ('id' in uuidResponse) {
-            return dashes ? dashedUUID(uuidResponse.id) : uuidResponse.id
-        } else if (!('error' in uuidResponse)) {
-            return dashes ? uuidResponse.data.player.id : uuidResponse.data.player.raw_id
-        } else {
-            if (throwErr) throw new Error('Failed to fetch UUID')
-            else return input
+            const uuidResponse: MojangAPIResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`, FetchResultTypes.JSON)
+
+            if ('id' in uuidResponse) {
+                return dashes ? dashedUUID(uuidResponse.id) : uuidResponse.id
+            } else {
+                throw new Error('Failed to fetch UUID')
+            }
+        } catch (e) {
+            if (throwErr) throw e
+            return input
         }
 
     } else {
