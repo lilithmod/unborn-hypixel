@@ -83,7 +83,7 @@ export async function fetchRecentGames(input: string, key: string, throwErr: boo
 }
 
 export async function fetchStatus(input: string, key: string, throwErr: boolean = false): Promise<StatusResponse> {
-    const resolvedInput = await resolveUsername(input)
+    const resolvedInput = await resolveUsername(input, false, throwErr)
     const response: StatusResponse = (await fetchJsonEndpoint('/status', {
         uuid: resolvedInput,
         key
