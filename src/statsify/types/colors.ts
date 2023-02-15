@@ -1,0 +1,3 @@
+export type ColorCodeNotch = '&0' | '&1' | '&2' | '&3' | '&4' | '&5' | '&6' | '&7' | '&8' | '&9' | '&a' | '&b' | '&c' | '&d' | '&e' | '&f'
+export type ColorCodeHex = '#000000' | '#0000AA' | '#00AA00' | '#00AAAA' | '#AA0000' | '#AA00AA' | '#FFAA00' | '#AAAAAA' | '#555555' | '#5555FF' | '#55FF55' | '#55FFFF' | '#FF5555' | '#FF55FF' | '#FFFF55' | '#FFFFFF'
+export type ColorCodeNames  = 'BLACK' | 'DARK_BLUE' | 'DARK_GREEN' | 'DARK_AQUA' | 'DARK_RED' | 'DARK_PURPLE' | 'GOLD' | 'GRAY' | 'DARK_GRAY' | 'BLUE' | 'GREEN' | 'AQUA' | 'RED' | 'LIGHT_PURPLE' | 'YELLOW' | 'WHITE'
