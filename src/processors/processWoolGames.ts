@@ -1,7 +1,7 @@
 import { RawWoolGames } from '../types/raw/RawWoolGames.js'
 import { WoolGames } from '../types/processed/WoolGames.js'
-import { getFormattedStar } from './processBedwars.js'
 import { cutOff } from '../utils/utils.js'
+import { getFormattedLevel } from '../statsify/models/player/gamemodes/woolwars/util'
 
 function getStarForExp(exp) {
 
@@ -32,7 +32,7 @@ export function processWoolGames(json: RawWoolGames): WoolGames {
             experience: json.progression?.experience ?? 0,
             star: getStarForExp(json.progression?.experience ?? 0)
         },
-        starFormatted: getFormattedStar(getStarForExp(json.progression?.experience ?? 0)),
+        starFormatted: getFormattedLevel(getStarForExp(json.progression?.experience ?? 0)),
         packages: json.packages ?? [],
         cosmetics: {
             barrier: json.barrier ?? '',
