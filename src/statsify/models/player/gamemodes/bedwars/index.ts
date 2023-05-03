@@ -138,7 +138,7 @@ export class BedWars {
         this.voidless = DreamsBedWarsMode.new(data, 'voidless')
 
         this.core = deepSub(this.overall, this['4v4'])
-        BedWarsMode.applyRatios(this.core)
+        BedWarsMode.applyRatios(this.core, data)
 
         this.core.winstreak = this.overall.winstreak
 

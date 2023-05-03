@@ -8,6 +8,7 @@
 
 import { APIData } from '../../../../util/util.js'
 import { deepAdd, ratio } from '../../../../util/math.js'
+import { getLevel } from './util'
 
 export class BedWarsModeItemsCollected {
     public iron: number
@@ -37,11 +38,15 @@ export class BedWarsMode {
 
     public wlr: number
 
+    public winsPerLevel: number
+
     public kills: number
 
     public deaths: number
 
     public kdr: number
+
+    public killsPerLevel: number
 
     public finalKills: number
 
@@ -49,11 +54,15 @@ export class BedWarsMode {
 
     public fkdr: number
 
+    public finalKillsPerLevel: number
+
     public bedsBroken: number
 
     public bedsLost: number
 
     public bblr: number
+
+    public bedsPerLevel: number
 
     public itemsCollected: BedWarsModeItemsCollected
 
@@ -73,14 +82,19 @@ export class BedWarsMode {
 
         this.itemsCollected = new BedWarsModeItemsCollected(data, mode)
 
-        BedWarsMode.applyRatios(this)
+        BedWarsMode.applyRatios(this, data)
     }
 
-    public static applyRatios(data: BedWarsMode) {
+    public static applyRatios(data: BedWarsMode, stats: APIData) {
+        const level = getLevel(stats.Experience)
         data.wlr = ratio(data.wins, data.losses)
+        data.winsPerLevel = ratio(data.wins, level)
         data.kdr = ratio(data.kills, data.deaths)
+        data.killsPerLevel = ratio(data.kills, level)
         data.fkdr = ratio(data.finalKills, data.finalDeaths)
+        data.finalKillsPerLevel = ratio(data.finalKills, level)
         data.bblr = ratio(data.bedsBroken, data.bedsLost)
+        data.bedsPerLevel = ratio(data.bedsBroken, level)
     }
 }
 
@@ -91,7 +105,7 @@ export class DreamsBedWarsMode extends BedWarsMode {
             new BedWarsMode(data, `four_four_${mode}`)
         )
 
-        BedWarsMode.applyRatios(stats)
+        BedWarsMode.applyRatios(stats, data)
         stats.winstreak = 0
         return stats
     }
