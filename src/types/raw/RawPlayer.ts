@@ -55,12 +55,15 @@ export interface RawPlayer {
     monthlyRankColor?: string
     networkExp?: number
     socialMedia?: {
-        DISCORD?: string
-        TWITTER?: string
-        YOUTUBE?: string
-        TWITCH?: string
-        INSTAGRAM?: string
-        HYPIXEL?: string
+        links?: {
+            DISCORD?: string
+            TWITTER?: string
+            YOUTUBE?: string
+            TWITCH?: string
+            INSTAGRAM?: string
+            HYPIXEL?: string
+        }
+        prompt?: boolean
     }
     totalRewards?: number
     rewardStreak?: number

@@ -12,10 +12,13 @@ import { PlayerSocials } from './socials'
 import { PlayerStats } from './stats'
 import { PlayerStatus } from './status'
 import { PlayerUtil } from './util'
-import { APIData } from '../../util/util.js'
+import { RawPlayer } from '../../../types/raw/RawPlayer'
 
 
 export class StatsifyPlayer {
+
+    public rawData: RawPlayer
+
     public uuid: string
 
     public username: string
@@ -61,7 +64,9 @@ export class StatsifyPlayer {
 
     public guildId?: string
 
-    public constructor(data: APIData = {}) {
+    public constructor(data: RawPlayer = {}) {
+        this.rawData = data
+
         this.uuid = data.uuid
         this.username = data.displayname
         this.usernameToLower = this.username?.toLowerCase()
