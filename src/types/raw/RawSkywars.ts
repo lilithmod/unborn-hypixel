@@ -1,6 +1,7 @@
 import { Head } from '../processed/Skywars'
 
 export interface RawSkywars {
+    'skywars_golden_boxes'?: number
     'SkyWars_openedChests'?: number
     'SkyWars_openedCommons'?: number
     'SkyWars_openedEpics'?: number

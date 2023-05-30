@@ -12,6 +12,7 @@ import { Progression } from '../../../progression'
 import { SkyWarsMode } from './mode'
 import { add } from '../../../../util/math.js'
 import { getFormattedLevel, getLevel, getLevelProgress, parseKit } from './util'
+import { RawSkywars } from '../../../../../types/raw/RawSkywars'
 
 export const SKYWARS_MODES = new GameModes([
     {api: 'overall'},
@@ -69,7 +70,11 @@ export class SkyWars {
 
     public doubles: SkyWarsMode
 
-    public constructor(data: APIData, ap: APIData) {
+    public lab: SkyWarsMode
+
+    public mega: SkyWarsMode
+
+    public constructor(data: RawSkywars, ap: APIData) {
         this.exp = data.skywars_experience ?? 0
         this.coins = data.coins ?? 0
         this.souls = data.souls ?? 0
@@ -102,6 +107,9 @@ export class SkyWars {
         const insaneKit = parseKit(
             data.activeKit_TEAMS_random ? 'random' : data.activeKit_TEAMS
         )
+        const megaKit = parseKit(
+            data.activeKit_MEGA_random ? 'random' : data.activeKit_MEGA
+        )
 
         const soloInsaneWins = data[`wins_solo_insane`]
         const soloNormalWins = data[`wins_solo_normal`]
@@ -118,6 +126,11 @@ export class SkyWars {
 
         this.doubles = new SkyWarsMode(data, 'team')
         this.doubles.kit = chooseKit(doublesInsaneWins, doublesNormalWins)
+
+        this.lab = new SkyWarsMode(data, 'lab')
+
+        this.mega = new SkyWarsMode(data, 'mega')
+        this.mega.kit = megaKit
 
         this.overall.kit = chooseKit(
             add(soloInsaneWins, doublesInsaneWins),
