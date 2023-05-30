@@ -46,12 +46,12 @@ export function processPlayer(input: RawPlayer, statsToProcess: Array<'duels' | 
         lastLogout: json.lastLogout ?? 0,
         level: +Number(calcLevel.getExactLevel(json.networkExp)).toFixed(1),
         links: {
-            DISCORD: json.socialMedia?.DISCORD ?? '',
-            TWITCH: json.socialMedia?.TWITCH ?? '',
-            TWITTER: json.socialMedia?.TWITTER ?? '',
-            YOUTUBE: json.socialMedia?.YOUTUBE ?? '',
-            INSTAGRAM: json.socialMedia?.INSTAGRAM ?? '',
-            HYPIXEL: json.socialMedia?.HYPIXEL ?? ''
+            DISCORD: json.socialMedia?.links?.DISCORD ?? '',
+            TWITCH: json.socialMedia?.links?.TWITCH ?? '',
+            TWITTER: json.socialMedia?.links?.TWITTER ?? '',
+            YOUTUBE: json.socialMedia?.links?.YOUTUBE ?? '',
+            INSTAGRAM: json.socialMedia?.links?.INSTAGRAM ?? '',
+            HYPIXEL: json.socialMedia?.links?.HYPIXEL ?? ''
         },
         mcVersion: json.mcVersionRp ?? '',
         nameHistory: json.knownAliases ?? [],
