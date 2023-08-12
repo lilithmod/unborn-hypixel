@@ -1,12 +1,17 @@
-import { fetch, FetchResultTypes } from '@sapphire/fetch'
+import { fetch, FetchMethods, FetchResultTypes } from '@sapphire/fetch'
 import { RawPlayer } from './types/raw/RawPlayer'
 import { URLSearchParams } from 'url'
 import { setTimeout as setTimeoutAsync } from 'timers/promises'
+import EventEmitter from 'events'
+
+let proxyEndpoint = 'https://api.mojang.com/profiles/minecraft'
+export function setProxyEndpoint(endpoint: string) {
+    proxyEndpoint = endpoint
+}
 
 async function fetchJsonEndpoint<T>(endpoint: string, query: any): Promise<T> {
     let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`, FetchResultTypes.Result)
     while (request.status === 429) {
-
         if (request.headers.has('RateLimit-Reset')) {
             await setTimeoutAsync(parseInt(request.headers.get('RateLimit-Reset')) * 1000)
         } else await setTimeoutAsync(1000)
@@ -20,27 +25,105 @@ export function dashedUUID(input: string): string {
     return `${input.substring(0, 8)}-${input.substring(8, 12)}-${input.substring(12, 16)}-${input.substring(16, 20)}-${input.substring(20)}`
 }
 
+const usernameQueue = []
+const usernameCache = new Map()
+const usernameEmitter = new EventEmitter()
+
 export async function resolveUsername(input: string, dashes: boolean = true, throwErr: boolean = false): Promise<string> {
     if (!input.includes('-') || input.length < 17) {
 
-        try {
-            const uuidResponse: MojangAPIResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`, FetchResultTypes.JSON)
-
-            if ('id' in uuidResponse) {
-                return dashes ? dashedUUID(uuidResponse.id) : uuidResponse.id
-            } else {
-                throw new Error('Failed to fetch UUID')
-            }
-        } catch (e) {
-            if (throwErr) throw e
-            return input
+        let output: string | null
+        if (usernameCache.has(input)) {
+            output = usernameCache.get(input)
+        } else {
+            usernameQueue.push(input)
+            const [uuid] = await waitFor(input.toLowerCase(), usernameEmitter)
+            output = uuid
         }
 
+        if (output == null && throwErr) {
+            throw new Error(`Failed to fetch UUID for username: ${input}`)
+        }
+
+        if (output !== null && dashes) {
+            return dashedUUID(output)
+        }
+
+        return output
     } else {
         return input
     }
+}
+export const waitFor = (
+    event: string,
+    emitter: EventEmitter,
+): Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+        const startListening = (): void => {
+            emitter.addListener(event, handleEvent)
+        }
+
+        const stopListening = (): void => {
+            emitter.removeListener(event, handleEvent)
+        }
+
+        const handleEvent = (...data: any[]): void => {
+            stopListening()
+            resolve(data)
+        }
+
+        startListening()
+    })
+}
+
+async function processQueue() {
+    if (usernameQueue.length === 0) return
+    const usernamesToProcess = usernameQueue.splice(0, 10)
+
+    try {
+        const httpResponse = await fetch(
+            proxyEndpoint,
+            {
+                method: FetchMethods.Post,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(usernamesToProcess),
+            },
+            FetchResultTypes.Result
+        )
+
+        if (httpResponse.status === 429) {
+            // console.log(httpResponse)
+            usernameQueue.unshift(...usernamesToProcess)
+            return
+        }
+
+        const responses: {
+            id: string
+            name: string
+        }[] = await httpResponse.json()
+
+        for (const username of usernamesToProcess) {
+            const response = responses.find((response) => response.name.toLowerCase() === username.toLowerCase())
+            if (response == undefined) {
+                usernameCache.set(username, null)
+                usernameEmitter.emit(username.toLowerCase(), null)
+            } else {
+                usernameCache.set(username, response.id)
+                usernameEmitter.emit(username.toLowerCase(), response.id)
+            }
+        }
+
+    } catch(e) {
+        // console.log(e)
+        usernameQueue.unshift(...usernamesToProcess)
+    }
+
 
 }
+
+setInterval(processQueue, 750)
 
 export async function fetchKeyInfo(key: string, throwErr: boolean = false): Promise<KeyResponse> {
     const response: KeyResponse = (await fetchJsonEndpoint('/key', {key}) as KeyResponse)
