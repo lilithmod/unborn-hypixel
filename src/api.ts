@@ -9,14 +9,29 @@ export function setProxyEndpoint(endpoint: string) {
     proxyEndpoint = endpoint
 }
 
+let batchMojang = false
+export function setBatchMojang(value: boolean) {
+    batchMojang = value
+}
+
 async function fetchJsonEndpoint<T>(endpoint: string, query: any): Promise<T> {
-    let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`, FetchResultTypes.Result)
+    const headers = {}
+    if (query['key'] != null) {
+        const key = query['key']
+        delete query['key']
+        headers['API-Key'] = key
+    }
+    let request: Response = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`, {
+        headers
+    }, FetchResultTypes.Result)
     while (request.status === 429) {
         if (request.headers.has('RateLimit-Reset')) {
             await setTimeoutAsync(parseInt(request.headers.get('RateLimit-Reset')) * 1000)
         } else await setTimeoutAsync(1000)
 
-        request = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`)
+        request = await fetch(`https://api.hypixel.net${endpoint}?${new URLSearchParams(query)}`, {
+            headers
+        }, FetchResultTypes.Result)
     }
     return await request.json()
 }
@@ -37,8 +52,21 @@ export async function resolveUsername(input: string, dashes: boolean = true, thr
             output = usernameCache.get(input)
         } else {
             usernameQueue.push(input)
-            const [uuid] = await waitFor(input.toLowerCase(), usernameEmitter)
-            output = uuid
+            if (batchMojang) {
+                const [uuid] = await waitFor(input.toLowerCase(), usernameEmitter)
+                output = uuid
+            } else {
+                try {
+                    const { id } = await fetch(
+                        proxyEndpoint + '/' + input,
+                        FetchResultTypes.JSON
+                    )
+                    output = id
+                } catch(e) {
+
+                }
+
+            }
         }
 
         if (output == null && throwErr) {
@@ -123,14 +151,7 @@ async function processQueue() {
 
 }
 
-setInterval(processQueue, 750)
-
-export async function fetchKeyInfo(key: string, throwErr: boolean = false): Promise<KeyResponse> {
-    const response: KeyResponse = (await fetchJsonEndpoint('/key', {key}) as KeyResponse)
-    if (throwErr && response.success === false) {
-        throw new Error(response.cause)
-    } else return response
-}
+setInterval(processQueue, 100)
 
 export async function fetchPlayerRaw(input: string, key: string, throwErr: boolean = false): Promise<PlayerResponse> {
     const resolvedInput = await resolveUsername(input)
