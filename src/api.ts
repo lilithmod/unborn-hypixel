@@ -51,8 +51,8 @@ export async function resolveUsername(input: string, dashes: boolean = true, thr
         if (usernameCache.has(input)) {
             output = usernameCache.get(input)
         } else {
-            usernameQueue.push(input)
             if (batchMojang) {
+                usernameQueue.push(input)
                 const [uuid] = await waitFor(input.toLowerCase(), usernameEmitter)
                 output = uuid
             } else {
@@ -61,7 +61,8 @@ export async function resolveUsername(input: string, dashes: boolean = true, thr
                         proxyEndpoint + '/' + input,
                         FetchResultTypes.JSON
                     )
-                    output = id
+                    usernameCache.set(input, id ?? null)
+                    output = id ?? null
                 } catch(e) {
 
                 }
