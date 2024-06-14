@@ -4,7 +4,7 @@ import { URLSearchParams } from 'url'
 import { setTimeout as setTimeoutAsync } from 'timers/promises'
 import EventEmitter from 'events'
 
-let proxyEndpoint = 'https://api.mojang.com/users/profiles/minecraft'
+let proxyEndpoint = 'https://api.lilith.rip/mojang/profiles'
 export function setProxyEndpoint(endpoint: string) {
     proxyEndpoint = endpoint
 }
